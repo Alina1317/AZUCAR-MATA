@@ -1,0 +1,282 @@
+input, button {
+  font-family: inherit;
+}
+
+*{
+  margin: 0;
+ /* padding: 0;*/
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
+.header {
+  background-color: #000;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 7%;
+}
+
+.header-logo {
+  margin-left: 1.5%;
+}
+
+.header-logo__title {
+  color: #fff;
+  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  cursor: default;
+}
+
+.header-menu {
+  display: flex;
+  min-width: 450px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-menu__link {
+  color: #fff;
+  font: normal normal 16px/110% 'Darker Grotesque', sans-serif;
+  text-decoration: none;
+}
+
+.header-menu__link:hover {
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+
+/*.wrapper {
+  max-width: 1280px;
+  padding: 0 2%;
+  margin: 0 auto;
+}
+*/
+.home {
+  max-width: 1280px;
+  padding: 0 2%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 7%;
+}
+
+.home-content {
+  margin-top: 11%;
+  min-width: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-content__title {
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 5%;
+}
+
+.home-content__text {
+  font: normal 500 32px/130% 'Darker Grotesque', sans-serif;
+  margin-bottom: 12%;
+}
+
+.home-content__btn {
+  background-color: #000;
+  color: #fff;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  border: none;
+  padding: 15px 45px 15px 45px;
+  cursor: pointer;
+  outline: none;
+}
+
+.home-content__btn:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.home-img {
+  max-width: 45%;
+}
+
+.about {
+  background: #fafafa;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-us {
+  margin: 5% 0 3% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40%;
+}
+
+.content-us__title {
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 3%;
+}
+
+.content-us__text {
+  font: normal normal 22px/110% 'Darker Grotesque', sans-serif;
+  text-align: center;
+}
+
+.content-img {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-img__coffe,
+.content-img__cup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30%;
+}
+
+.content-img__coffe-img,
+.content-img__cup-img {
+  margin-bottom: 3%;
+}
+
+.content-img__coffe-text,
+.content-img__cup-text {
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+  text-align: center;
+  margin-bottom: 15%;
+}
+
+.product {
+  /* min-height: 650px; */
+}
+
+.coffe {
+  margin: 3% 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coffe-title {
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1%;
+}
+
+.coffe-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 2% 0; */
+  min-width: 500px;
+  background: #fafafa;
+  min-height: 620px;
+}
+
+.coffe-shop:hover {
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.coffe-shop__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2% 0;
+}
+
+.coffe-shop__img {
+  /* FONT-WEIGHT: 200; */
+  max-width: 450px;
+  min-width: 400px;
+}
+
+.coffe-shop__text {
+  font: normal 500 28px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 3%;
+}
+
+.coffe-shop__link-bye {
+  margin: 0 0 2% 0;
+}
+
+.coffe-shop__bye {
+  background-color: #000;
+  color: #fff;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  border: none;
+  padding: 15px 45px 15px 45px;
+  cursor: pointer;
+  outline: none;
+}
+
+.coffe-shop__bye:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.footer {
+  background: #000;
+}
+
+.contacts {
+  margin: auto;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contacts-us,
+.follow-us {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5%;
+  min-width: 20%;
+}
+
+.contacts-us__title, 
+.follow-us__title {
+  font: normal 500 35px/110% 'Darker Grotesque', sans-serif;
+  color: #fff;
+  margin-bottom: 10%;
+}
+
+.contacts-wrap,
+.follow-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.contacts-wrap__where,
+.contacts-wrap__tel,
+.follow-wrap__instagram,
+.follow-wrap__facebook {
+  margin: 0 0 4% 6%;
+  min-width: 90%;
+}
+
+.contacts-wrap__where-address,
+.contacts-wrap__tel-call,
+.follow-wrap__instagram-inst,
+.follow-wrap__facebook-face {
+  color: #fff;
+  font: normal bold 25px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 3%;
+}
+
+.contacts-wrap__where-city,
+.contacts-wrap__tel-number,
+.follow-wrap__instagram-account,
+.follow-wrap__facebook-account {
+  color: #fff;
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+}
