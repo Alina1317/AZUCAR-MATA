@@ -174,6 +174,7 @@ input, button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   /* margin: 2% 0; */
   min-width: 500px;
   background: #fafafa;
@@ -181,14 +182,14 @@ input, button {
 }
 
 .coffe-shop:hover {
-  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  box-shadow: 0px 2px 25px 14px rgba(5, 5, 5, 0.2);
 }
 
 .coffe-shop__link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2% 0;
+  margin:0 0 2% 0;
 }
 
 .coffe-shop__img {
