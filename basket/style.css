@@ -1,0 +1,206 @@
+input, button {
+  font-family: inherit;
+}
+
+*{
+  margin: 0;
+ /* padding: 0;*/
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
+body {
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  background-color: #000;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 7%;
+}
+
+.header-logo {
+  margin-left: 1.5%;
+}
+
+.header-logo__title {
+  color: #fff;
+  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  cursor: default;
+}
+
+.header-menu {
+  display: flex;
+  min-width: 450px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-menu__link {
+  color: #fff;
+  font: normal normal 16px/110% 'Darker Grotesque', sans-serif;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.header-menu__link:hover {
+  border-bottom: 2px solid #fff;
+  transform: scale(1.05);
+}
+
+.active {
+  border-bottom: 2px solid #fff;
+}
+
+.wrapper {
+  min-height: 470px;
+}
+
+.wrapper-basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8%;
+}
+
+.wrapper-basket__title {
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 3%;
+}
+
+.wrapper-basket__btn {
+  background-color: #000;
+  color: #fff;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  border: none;
+  padding: 15px 45px;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+.wrapper-basket__btn:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.footer {
+  background: #000;
+}
+
+.contacts {
+  margin: auto;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contacts-us,
+.follow-us {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5%;
+  min-width: 20%;
+}
+
+.contacts-us__title, 
+.follow-us__title {
+  font: normal 500 35px/110% 'Darker Grotesque', sans-serif;
+  color: #fff;
+  margin-bottom: 10%;
+}
+
+.contacts-wrap,
+.follow-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.contacts-wrap__where,
+.contacts-wrap__tel,
+.follow-wrap__instagram,
+.follow-wrap__facebook {
+  margin: 0 0 4% 6%;
+  min-width: 90%;
+}
+
+.contacts-wrap__where-address,
+.contacts-wrap__tel-call,
+.follow-wrap__instagram-inst,
+.follow-wrap__facebook-face {
+  color: #fff;
+  font: normal bold 25px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 3%;
+}
+
+.contacts-wrap__where-city,
+.contacts-wrap__tel-number,
+.follow-wrap__instagram-account,
+.follow-wrap__facebook-account {
+  color: #fff;
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+}
+
+@media(max-width: 768px) {
+  .header {
+    justify-content: flex-start;
+  }
+
+  .header-logo {
+    margin-left: 4%;
+  }
+
+  .header-logo__title {
+    font-size: 36px;
+  }
+
+  .header-menu {
+    display: none;
+  }
+
+  .wrapper-basket__title {
+    font-size: 36px;
+    margin-bottom: 6%;
+  }
+
+  .wrapper-basket__btn {
+    padding: 12px 35px;
+  }
+
+  .contacts-us__title,
+  .follow-us__title {
+    font-size: 30px;
+  }
+
+  .contacts-wrap__where-address,
+  .contacts-wrap__tel-call,
+  .follow-wrap__instagram-inst,
+  .follow-wrap__facebook-face {
+    font-size: 20px;
+  }
+
+  .contacts-wrap__where-city,
+  .contacts-wrap__tel-number,
+  .follow-wrap__instagram-account,
+  .follow-wrap__facebook-account {
+    font-size: 16px;
+  }
+
+  .contacts-us__geo,
+  .contacts-us__phone,
+  .follow-us__inst,
+  .follow-us__facebook {
+  width: 25px;
+  }
+}
