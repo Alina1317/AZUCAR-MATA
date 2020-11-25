@@ -59,8 +59,10 @@ a {
   border-bottom: 2px solid #fff;
 }
 
-.wrapper {
-  min-height: 470px;
+.wrapper {  
+  min-height: 470px;
+  display: flex;
+  justify-content: center;
 }
 
 .wrapper-basket {
