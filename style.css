@@ -4,7 +4,6 @@ input, button {
 
 *{
   margin: 0;
- /* padding: 0;*/
   font-family: 'Darker Grotesque', sans-serif;
 }
 
@@ -162,10 +161,6 @@ a {
   margin-bottom: 15%;
 }
 
-.product {
-  /* min-height: 650px; */
-}
-
 .coffe {
   margin: 3% 0;
   display: flex;
@@ -184,7 +179,6 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* margin: 2% 0; */
   min-width: 500px;
   background: #fafafa;
   min-height: 620px;
@@ -369,10 +363,6 @@ a {
     min-width: 250px;
   }
 
-  .contacts {
-    
-  }
-
   .contacts-us__title,
   .follow-us__title {
     font-size: 30px;
@@ -398,4 +388,85 @@ a {
   .follow-us__facebook {
   width: 25px;
   } 
+}
+
+@media (max-width: 320px) {
+  .header-logo__title {
+    font-size: 28px;
+  }
+
+  .home-content {
+    margin: 2% 0 15% 0;
+  }
+
+  .home-content__title {
+    font-size: 24px;
+  }
+
+  .home-content__text {
+    font-size: 18px;
+  }
+
+  .home-content__btn {
+    padding: 10px 25px;
+  }
+
+  .content-us {
+    max-width: 85%;
+    margin: 5% 0 7% 0;
+  }
+
+  .content-us__title {
+    font-size: 28px;
+  }
+
+  .content-us__text {
+    font-size: 18px;
+  }
+
+  .content-img__coffe, .content-img__cup {
+    max-width: 70%;
+  }
+
+  .content-img__coffe-text,
+  .content-img__cup-text {
+    font-size: 18px;
+  }
+
+  .coffe-title {
+    margin-bottom: 5%;
+    font-size: 28px;
+  }
+
+  .coffe-shop {
+    min-width: 220px;
+    min-height: 320px;
+  }
+
+  .coffe-shop__img {
+    max-width: 200px;
+    min-width: 180px;
+  }
+
+  .coffe-shop__link {
+    margin: 0 0 3% 0;
+  }
+
+  .coffe-shop__text {
+    font-size: 22px;
+  }
+
+  .coffe-shop__bye {
+    padding: 10px 25px;
+  }
+
+  .contacts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacts-us {
+    margin-left: 6.5%;
+  }
+  
 }
