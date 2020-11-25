@@ -33,7 +33,7 @@ a {
   color: #fff;
   font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
-  cursor: default;
+  cursor: pointer;
 }
 
 .header-menu {
