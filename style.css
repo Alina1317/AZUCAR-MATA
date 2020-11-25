@@ -12,6 +12,10 @@ body {
   cursor: default;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   background-color: #000;
   min-height: 100px;
@@ -36,18 +40,19 @@ body {
   display: flex;
   min-width: 450px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .header-menu__link {
   color: #fff;
   font: normal normal 16px/110% 'Darker Grotesque', sans-serif;
   text-decoration: none;
+  border-bottom: 2px solid transparent;
 }
 
 .header-menu__link:hover {
-  font-weight: bold;
   border-bottom: 2px solid #fff;
+  transform: scale(1.05);
 }
 
 /*.wrapper {
@@ -92,6 +97,7 @@ body {
   padding: 15px 45px 15px 45px;
   cursor: pointer;
   outline: none;
+  border: 2px solid transparent;
 }
 
 .home-content__btn:hover {
@@ -120,6 +126,7 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: 40%;
+  text-align: center;
 }
 
 .content-us__title {
@@ -197,7 +204,6 @@ body {
 }
 
 .coffe-shop__img {
-  /* FONT-WEIGHT: 200; */
   max-width: 450px;
   min-width: 400px;
 }
@@ -220,6 +226,7 @@ body {
   padding: 15px 45px 15px 45px;
   cursor: pointer;
   outline: none;
+  border: 2px solid transparent;
 }
 
 .coffe-shop__bye:hover {
@@ -284,4 +291,113 @@ body {
 .follow-wrap__facebook-account {
   color: #fff;
   font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+}
+
+@media(max-width: 768px) {
+
+  .header {
+    justify-content: flex-start;
+  }
+
+  .header-logo {
+    margin-left: 4%;
+  }
+
+  .header-logo__title {
+    font-size: 36px;
+  }
+
+  .header-menu {
+    display: none;
+  }
+
+  .home {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-content {
+    align-items: center;
+    margin: 2% 0 7% 0;
+    min-width: 12%;
+  }
+
+  .home-content__title {
+    font-size: 32px;
+  }
+
+  .home-content__text {
+    font-size: 28px;
+  }
+
+  .home-content__btn {
+    padding: 12px 35px;
+  }
+
+  .home-img {
+    max-width: 65%;
+  }
+
+  .content-img {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-us {
+    max-width: 60%;
+  }
+
+  .content-us__title {
+    font-size: 34px;
+  }
+
+  .content-img__coffe,
+  .content-img__cup {
+    max-width: 40%;
+  }
+
+  .coffe-title {
+    margin-bottom: 3%;
+    font-size: 32px;
+  }
+
+  .coffe-shop {
+    min-width: 310px;
+    min-height: 450px;
+  }
+
+  .coffe-shop__img {
+    max-width: 280px;
+    min-width: 250px;
+  }
+
+  .contacts {
+    
+  }
+
+  .contacts-us__title,
+  .follow-us__title {
+    font-size: 30px;
+  }
+
+  .contacts-wrap__where-address,
+  .contacts-wrap__tel-call,
+  .follow-wrap__instagram-inst,
+  .follow-wrap__facebook-face {
+    font-size: 20px;
+  }
+
+  .contacts-wrap__where-city,
+  .contacts-wrap__tel-number,
+  .follow-wrap__instagram-account,
+  .follow-wrap__facebook-account {
+    font-size: 16px;
+  }
+
+  .contacts-us__geo,
+  .contacts-us__phone,
+  .follow-us__inst,
+  .follow-us__facebook {
+  width: 25px;
+  } 
 }
