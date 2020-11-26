@@ -4,11 +4,16 @@ input, button {
 
 *{
   margin: 0;
+  /* padding: 0; */
   font-family: 'Darker Grotesque', sans-serif;
 }
 
 body {
   cursor: default;
+}
+
+.wrap {
+  min-width: 320px;
 }
 
 a {
@@ -46,12 +51,23 @@ a {
   color: #fff;
   font: normal normal 16px/110% 'Darker Grotesque', sans-serif;
   text-decoration: none;
+  padding: 0 0 4px 0;
   border-bottom: 2px solid transparent;
 }
 
 .header-menu__link:hover {
   border-bottom: 2px solid #fff;
-  transform: scale(1.05);
+  transition: all .3s;
+  opacity: .8;
+}
+
+svg {
+  fill: white;
+}
+
+.active {
+  border-bottom: 2px solid #fff;
+  padding: 0 0 4px 0;
 }
 
 .home {
@@ -87,20 +103,17 @@ a {
   font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
   border: none;
-  padding: 15px 45px 15px 45px;
+  padding: 15px 45px;
   cursor: pointer;
   outline: none;
   border: 2px solid transparent;
+  transition: all .3s;
 }
 
 .home-content__btn:hover {
   border: 2px solid #000;
   background-color: #fff;
   color: #000;
-}
-
-.active {
-  border-bottom: 2px solid #fff;
 }
 
 .home-img {
@@ -122,8 +135,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40%;
   text-align: center;
+  max-width: 40%;
 }
 
 .content-us__title {
@@ -171,7 +184,7 @@ a {
 
 .coffe-title {
   font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 2%;
+  margin-bottom: 1.5%;
 }
 
 .coffe-shop {
@@ -179,6 +192,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* margin: 2% 0; */
   min-width: 500px;
   background: #fafafa;
   min-height: 620px;
@@ -186,13 +200,14 @@ a {
 
 .coffe-shop:hover {
   box-shadow: 0px 2px 25px 14px rgba(5, 5, 5, 0.2);
+  cursor: pointer;
 }
 
 .coffe-shop__link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:0 0 2% 0;
+  margin: 0 0 2% 0;
 }
 
 .coffe-shop__img {
@@ -207,6 +222,7 @@ a {
 
 .coffe-shop__link-bye {
   margin: 0 0 2% 0;
+  border: 2px solid transparent; 
 }
 
 .coffe-shop__bye {
@@ -215,10 +231,11 @@ a {
   font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
   border: none;
-  padding: 15px 45px;
+  padding: 15px 45px 15px 45px;
   cursor: pointer;
   outline: none;
   border: 2px solid transparent;
+  transition: all .3s;
 }
 
 .coffe-shop__bye:hover {
@@ -235,22 +252,45 @@ a {
   margin: auto;
   max-width: 1300px;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
+}
+
+.contacts-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 90%;
+  flex-wrap: wrap;
+  margin: 1.5%;
 }
 
 .contacts-us,
 .follow-us {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  margin-top: 1.5%;
-  min-width: 20%;
+  flex-wrap: wrap;
+  margin: 0 2%;
 }
 
 .contacts-us__title, 
 .follow-us__title {
   font: normal 500 35px/110% 'Darker Grotesque', sans-serif;
   color: #fff;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+}
+
+.contacts-footer__where {
+  display: flex;
+  min-width: 400px;
+  justify-content: space-between;
+}
+
+.contacts-footer__social {
+  display: flex;
+  min-width: 400px;
+  justify-content: space-around;
 }
 
 .contacts-wrap,
@@ -368,6 +408,21 @@ a {
     font-size: 30px;
   }
 
+  .coffe-shop__bye {
+    padding: 12px 35px;
+  }
+
+  .contacts-footer__where {
+    min-width: 320px;
+    flex-wrap: wrap;
+  }
+
+  .contacts-footer__social {
+    flex-wrap: wrap;
+    min-width: 320px;
+    justify-content: space-between;
+  }
+
   .contacts-wrap__where-address,
   .contacts-wrap__tel-call,
   .follow-wrap__instagram-inst,
@@ -388,6 +443,14 @@ a {
   .follow-us__facebook {
   width: 25px;
   } 
+}
+
+@media (max-width: 380px) {
+  .contacts-footer__where,
+  .contacts-footer__social {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 320px) {
@@ -465,8 +528,8 @@ a {
     align-items: center;
   }
 
-  .contacts-us {
+  /*.contacts-us {
     margin-left: 6.5%;
-  }
+  }*/
   
 }
