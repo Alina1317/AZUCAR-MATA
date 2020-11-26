@@ -215,9 +215,21 @@ svg {
   min-width: 400px;
 }
 
+.price {
+  min-width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4%;
+}
+
 .coffe-shop__text {
   font: normal 500 28px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 3%;
+}
+
+.coffe-shop__price {
+  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
 }
 
 .coffe-shop__link-bye {
@@ -290,7 +302,11 @@ svg {
 .contacts-footer__social {
   display: flex;
   min-width: 400px;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.face {
+  margin-right: 5%;
 }
 
 .contacts-wrap,
@@ -441,7 +457,7 @@ svg {
   .contacts-us__phone,
   .follow-us__inst,
   .follow-us__facebook {
-  width: 25px;
+    width: 25px;
   } 
 }
 
@@ -450,6 +466,10 @@ svg {
   .contacts-footer__social {
     flex-direction: column;
     align-items: center;
+  }
+
+  .face {
+    margin-right: 0;
   }
 }
 

@@ -6,66 +6,55 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="fonts.css"> -->
 	<title>AZÚCAR MATA</title>
 </head>
 <body>
 	<div class="wrap">
 	<header class="header">
 		<div class="header-logo">
-			<h1 class="header-logo__title">AZÚCAR MATA</h1>
+			<a class="" href="../index.html"><h1 class="header-logo__title">AZÚCAR MATA</h1></a>
 		</div>
 		<nav class="header-menu">
-			<a class="header-menu__link active" href="">CASA</a>
-			<a class="header-menu__link" href="#sobre">SOBRE</a>
-			<a class="header-menu__link" href="#prodocto">PRODUCTO</a>
+			<a class="header-menu__link" href="../index.html">CASA</a>
+			<a class="header-menu__link active" href="#">PRODUCTO</a>
 			<!-- <a class="header-menu__link" href="">BLOG</a> -->
 			<a class="header-menu__link" href="#contactos">CONTACTOS</a>
-			<a class="header-menu__link" href="./basket/index.html">
+			<a class="header-menu__link" href="../basket/index.html">
 				<svg height="32px" viewBox="-35 0 512 512.00102" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="m443.054688 495.171875-38.914063-370.574219c-.816406-7.757812-7.355469-13.648437-15.15625-13.648437h-73.140625v-16.675781c0-51.980469-42.292969-94.273438-94.273438-94.273438-51.984374 0-94.277343 42.292969-94.277343 94.273438v16.675781h-73.140625c-7.800782 0-14.339844 5.890625-15.15625 13.648437l-38.9140628 370.574219c-.4492192 4.292969.9453128 8.578125 3.8320308 11.789063 2.890626 3.207031 7.007813 5.039062 11.324219 5.039062h412.65625c4.320313 0 8.4375-1.832031 11.324219-5.039062 2.894531-3.210938 4.285156-7.496094 3.835938-11.789063zm-285.285157-400.898437c0-35.175782 28.621094-63.796876 63.800781-63.796876 35.175782 0 63.796876 28.621094 63.796876 63.796876v16.675781h-127.597657zm-125.609375 387.25 35.714844-340.097657h59.417969v33.582031c0 8.414063 6.824219 15.238282 15.238281 15.238282s15.238281-6.824219 15.238281-15.238282v-33.582031h127.597657v33.582031c0 8.414063 6.824218 15.238282 15.238281 15.238282 8.414062 0 15.238281-6.824219 15.238281-15.238282v-33.582031h59.417969l35.714843 340.097657zm0 0"/></svg>
 			</a>
 		</nav>
 	</header>
 	<main>
-		<section class="home-wrapper">
-			<div class="home">
-				<div class="home-content">
-					<h2 class="home-content__title"><strong>AZÚCAR MATA</strong></h2>
-					<p class="home-content__text">es más que solo café</p>
-					<button class="home-content__btn">Aprender más</button>
-				</div>
-				<img class="home-img" src="img/azucar mata.jpg" alt="azucar mata">
-			</div>
-		</section>
-		<section id="sobre" class="about">
-			<div class="content">
-				<div class="content-us">
-					<h3 class="content-us__title">Quiénes somos?</h3>
-					<p class="content-us__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi modi alias enim ut quis dolor, qui quae similique vel voluptatum. Eveniet nesciunt, esse, autem illo nemo fuga distinctio tempore dignissimos?</p>
-				</div>
-				<div class="content-img">
-					<div class="content-img__coffe">
-						<img class="content-img__coffe-img" src="img/coffeemaker.png" alt="coffeemaker">
-						<p class="content-img__coffe-text">Lorem ipsum dolor sit amet, consectetur adipisicing, elit.</p>
-					</div>
-					<div class="content-img__cup">
-						<img class="content-img__cup-img" src="img/cup-of-coffee.png" alt="cup-of-coffee">
-						<p class="content-img__cup-text">Corrupti voluptates amet possimus numquam, mollitia eum repellat fugiat assumenda asperiores rerum.</p>
+		<section class="producto">
+			<div class="product">
+				<div class="product-img">
+					<img class="product-img__img" src="../img/azucar.jpg" alt="">
+					<div class="product-img__slider">
+						<img class="product-img__slider-img" src="../img/azucar.jpg" alt="">
+						<img class="product-img__slider-img" src="../img/coffeset.jpg" alt="">
+						<img class="product-img__slider-img" src="../img/rightside.jpg" alt="">
+						<img class="product-img__slider-img" src="../img/morrow.jpg" alt="">
+						<img class="product-img__slider-img" src="../img/dalston.jpg" alt="">
+						<img class="product-img__slider-img" src="../img/slowmov.jpg" alt="">
 					</div>
 				</div>
-			</div>
-		</section>
-		<section id="prodocto" class="product">
-			<div class="coffe">
-				<h3 class="coffe-title">AZÚCAR MATA tienda</h3>
-				<div class="coffe-shop">
-					<a class="coffe-shop__link" href="./product/index.html"><img class="coffe-shop__img" src="img/azucar.jpg" alt="coffe"></a>
-					<div class="price">
-						<p class="coffe-shop__text">Set de café</p>
-						<p class="coffe-shop__price">15.99&euro;</p>
+				<div class="product-text">
+					<h1 class="product-text__title">Set de café</h1>
+					<p class="product-text__price">15.99&euro;</p>
+					<button class="product-text__btn">Anadir a la cesta</button>
+					<div class="product-info">
+						<p class="product-info__text">Información del producto</p>
+						<div class="product-info__list">
+							<p class="product-info__list-set">Set de café elegido por el equipo de Azúcar Mata.</p>
+							<ul>
+								<li class="product-info__list-list">Incluye 4 bolsas de 55gr. de cafe tostado por los tostadores de Barcelona;</li>
+								<li class="product-info__list-list">Únicamente tueste ligero;</li>
+								<li class="product-info__list-list">Edición limitada;</li>
+							</ul>
+							<p class="product-info__list-ps"> P.S. Por favor, indica en los comentarios si necesitas el café molido.</p>
+						</div>
 					</div>
-					<a class="coffe-shop__link-bye" href=""><button class="coffe-shop__bye">Compre ahora</button></a>
-				</div>
+				</div> 
 			</div>
 		</section>
 	</main>
@@ -77,7 +66,7 @@
 				<a class="contacts-us__link" href="https://www.google.com/maps/d/viewer?ptab=2&ie=UTF8&oe=UTF8&t=m&vpsrc=0&msa=0&mid=1rPAt9BNTwf2N2LVGnLYzTyc5_mQ&ll=41.37096684977434%2C2.1714397491454918&z=13" target="_blank">
 					<div class="contacts-footer__where">
 					<div class="contacts-wrap">
-						<img class="contacts-us__geo" src="img/location_1.png" alt="geolocation">
+						<img class="contacts-us__geo" src="../img/location_1.png" alt="geolocation">
 						<div class="contacts-wrap__where">
 							<p class="contacts-wrap__where-address">Dirección</p>
 							<p class="contacts-wrap__where-city">Barcelona, Spain</p>
@@ -86,7 +75,7 @@
 				</a>
 				<a class="contacts-wrap__tel-link" href="+ 34 589864231">
 					<div class="contacts-wrap">
-						<img class="contacts-us__phone" src="img/phon1.png" alt="phone">
+						<img class="contacts-us__phone" src="../img/phon1.png" alt="phone">
 						<div class="contacts-wrap__tel">
 							<p class="contacts-wrap__tel-call">Llámanos</p>
 							<p class="contacts-wrap__tel-number">+ 34 589864231</p>
@@ -100,14 +89,14 @@
 				<a class="follow-us__link" href="https://www.instagram.com/azucarmata/?hl=ru" target="_blank">
 					<div class="contacts-footer__social">
 					<div class="follow-wrap">
-						<img class="follow-us__inst" src="img/instag1.png" alt="instagram">
+						<img class="follow-us__inst" src="../img/instag1.png" alt="instagram">
 						<div class="follow-wrap__instagram">
 							<p class="follow-wrap__instagram-inst">Instagram</p>
 							<p class="follow-wrap__instagram-account"> @azucarmata</p>
 						</div>
 					</div>
 					<div class="follow-wrap face">
-						<img class="follow-us__facebook" src="img/fb_1.png" alt="facebook">
+						<img class="follow-us__facebook" src="../img/fb_1.png" alt="facebook">
 						<div class="follow-wrap__facebook">
 							<p class="follow-wrap__facebook-face">Facebook</p>
 							<p class="follow-wrap__facebook-account">Fuga, suscipit.</p>

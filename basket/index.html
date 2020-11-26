@@ -10,65 +10,78 @@
 	<title>AZÚCAR MATA</title>
 </head>
 <body>
-	<header class="header">
-		<div class="header-logo">
-			<a class="" href="../index.html"><h1 class="header-logo__title">AZÚCAR MATA</h1></a>
+	<div class="wrap">
+		<header class="header">
+			<div class="header-logo">
+				<a class="" href="../index.html"><h1 class="header-logo__title">AZÚCAR MATA</h1></a>
+			</div>
+			<nav class="header-menu">
+				<a class="header-menu__link" href="../index.html">CASA</a>
+				<!-- <a class="header-menu__link" href="">BLOG</a> -->
+				<a class="header-menu__link" href="#contactos">CONTACTOS</a>
+				<a class="header-menu__link" href="./basket/index.html">
+					<svg height="32px" viewBox="-35 0 512 512.00102" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="m443.054688 495.171875-38.914063-370.574219c-.816406-7.757812-7.355469-13.648437-15.15625-13.648437h-73.140625v-16.675781c0-51.980469-42.292969-94.273438-94.273438-94.273438-51.984374 0-94.277343 42.292969-94.277343 94.273438v16.675781h-73.140625c-7.800782 0-14.339844 5.890625-15.15625 13.648437l-38.9140628 370.574219c-.4492192 4.292969.9453128 8.578125 3.8320308 11.789063 2.890626 3.207031 7.007813 5.039062 11.324219 5.039062h412.65625c4.320313 0 8.4375-1.832031 11.324219-5.039062 2.894531-3.210938 4.285156-7.496094 3.835938-11.789063zm-285.285157-400.898437c0-35.175782 28.621094-63.796876 63.800781-63.796876 35.175782 0 63.796876 28.621094 63.796876 63.796876v16.675781h-127.597657zm-125.609375 387.25 35.714844-340.097657h59.417969v33.582031c0 8.414063 6.824219 15.238282 15.238281 15.238282s15.238281-6.824219 15.238281-15.238282v-33.582031h127.597657v33.582031c0 8.414063 6.824218 15.238282 15.238281 15.238282 8.414062 0 15.238281-6.824219 15.238281-15.238282v-33.582031h59.417969l35.714843 340.097657zm0 0"/></svg>
+				</a> 
+			</nav>
+		</header>
+		<main>
+			<section class="wrapper">
+				<div class="wrapper-basket">
+					<h1 class="wrapper-basket__title">Tu carrito está vacío</h1>
+					<a class="wrapper-basket__link" href="../index.html"><button class="wrapper-basket__btn">Ir de compras</button></a>
+				</div>
+			</section>
+		</main>
+		<footer id="contactos" class="footer">
+			<div class="contacts">
+				<div class="contacts-footer">
+				<div class="contacts-us">
+					<h4 class="contacts-us__title">Contáctenos</h4>
+					<a class="contacts-us__link" href="https://www.google.com/maps/d/viewer?ptab=2&ie=UTF8&oe=UTF8&t=m&vpsrc=0&msa=0&mid=1rPAt9BNTwf2N2LVGnLYzTyc5_mQ&ll=41.37096684977434%2C2.1714397491454918&z=13" target="_blank">
+						<div class="contacts-footer__where">
+						<div class="contacts-wrap">
+							<img class="contacts-us__geo" src="../img/location_1.png" alt="geolocation">
+							<div class="contacts-wrap__where">
+								<p class="contacts-wrap__where-address">Dirección</p>
+								<p class="contacts-wrap__where-city">Barcelona, Spain</p>
+							</div>
+						</div>
+					</a>
+					<a class="contacts-wrap__tel-link" href="+ 34 589864231">
+						<div class="contacts-wrap">
+							<img class="contacts-us__phone" src="../img/phon1.png" alt="phone">
+							<div class="contacts-wrap__tel">
+								<p class="contacts-wrap__tel-call">Llámanos</p>
+								<p class="contacts-wrap__tel-number">+ 34 589864231</p>
+							</div>
+						</div>
+						</div>
+					</a>				
+				</div>
+				<div class="follow-us">
+					<h4 class="follow-us__title">Síguenos</h4>
+					<a class="follow-us__link" href="https://www.instagram.com/azucarmata/?hl=ru" target="_blank">
+						<div class="contacts-footer__social">
+						<div class="follow-wrap">
+							<img class="follow-us__inst" src="../img/instag1.png" alt="instagram">
+							<div class="follow-wrap__instagram">
+								<p class="follow-wrap__instagram-inst">Instagram</p>
+								<p class="follow-wrap__instagram-account"> @azucarmata</p>
+							</div>
+						</div>
+						<div class="follow-wrap face">
+							<img class="follow-us__facebook" src="../img/fb_1.png" alt="facebook">
+							<div class="follow-wrap__facebook">
+								<p class="follow-wrap__facebook-face">Facebook</p>
+								<p class="follow-wrap__facebook-account">Fuga, suscipit.</p>
+							</div>	
+						</div>
+					</div>
+					</a>
+				</div>
+			</div>
 		</div>
-		<nav class="header-menu">
-			<a class="header-menu__link" href="../index.html">CASA</a>
-			<a class="header-menu__link" href="#">SOBRE</a>
-			<a class="header-menu__link" href="#">PRODUCTO</a>
-			<!-- <a class="header-menu__link" href="">BLOG</a> -->
-			<a class="header-menu__link" href="#">CONTACTOS</a>
-			<a class="header-menu__link active" href="#"><img class="header-menu__basket" src="../img/shoppingbags.png" alt="basket"></a>
-		</nav>
-	</header>
-	<main>
-		<section class="wrapper">
-			<div class="wrapper-basket">
-				<h1 class="wrapper-basket__title">Tu carrito está vacío</h1>
-				<a class="wrapper-basket__link" href="../index.html"><button class="wrapper-basket__btn">Ir de compras</button></a>
-			</div>
-		</section>
-	</main>
-	<footer id="contactos" class="footer">
-		<div class="contacts">
-			<div class="contacts-us">
-				<h4 class="contacts-us__title">Contáctenos</h4>
-				<div class="contacts-wrap">
-					<a class="contacts-us__link" href="https://www.google.com/maps/d/viewer?ptab=2&ie=UTF8&oe=UTF8&t=m&vpsrc=0&msa=0&mid=1rPAt9BNTwf2N2LVGnLYzTyc5_mQ&ll=41.37096684977434%2C2.1714397491454918&z=13" target="_blank"><img class="contacts-us__geo" src="../img/location_1.png" alt="geolocation"></a>
-					<div class="contacts-wrap__where">
-						<a class="" href=""><p class="contacts-wrap__where-address">Dirección</p></a>
-						<a class="" href=""><p class="contacts-wrap__where-city">Barcelona, Spain</p></a>
-					</div>
-				</div>
-				<div class="contacts-wrap">
-					<a class="contacts-us__link" href=""><img class="contacts-us__phone" src="../img/phon1.png" alt="phone"></a>
-					<div class="contacts-wrap__tel">
-						<a class="" href=""><p class="contacts-wrap__tel-call">Llámanos</p></a>
-						<a class="contacts-wrap__tel-link" href="+ 34 589864231"><p class="contacts-wrap__tel-number">+ 34 589864231</p></a>
-					</div>
-				</div>				
-			</div>
-			<div class="follow-us">
-				<h4 class="follow-us__title">Síguenos</h4>
-				<div class="follow-wrap">
-					<a class="follow-us__link" href="https://www.instagram.com/azucarmata/?hl=ru" target="_blank"><img class="follow-us__inst" src="../img/instag1.png" alt="instagram"></a>
-					<div class="follow-wrap__instagram">
-						<a class="" href=""><p class="follow-wrap__instagram-inst">Instagram</p></a>
-						<a class="" href=""><p class="follow-wrap__instagram-account"> @azucarmata</p></a>
-					</div>
-				</div>
-				<div class="follow-wrap">
-					<a class="follow-us__link" href="" target="_blank"><img class="follow-us__facebook" src="../img/fb_1.png" alt="facebook"></a>
-					<div class="follow-wrap__facebook">
-						<a class="" href=""><p class="follow-wrap__facebook-face">Facebook</p></a>
-						<a class="" href=""><p class="follow-wrap__facebook-account">Fuga, suscipit.</p></a>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</footer>
+		</footer>
+	</div>
 </body>
 </html>

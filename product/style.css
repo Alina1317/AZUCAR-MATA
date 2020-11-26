@@ -4,17 +4,12 @@ input, button {
 
 *{
   margin: 0;
- /* padding: 0;*/
+  /* padding: 0; */
   font-family: 'Darker Grotesque', sans-serif;
 }
 
 body {
   cursor: default;
-}
-
-a {
-  text-decoration: none;
-
 }
 
 .wrap {
@@ -23,6 +18,10 @@ a {
   justify-content: space-between;
   height: 100vh;
   min-width: 320px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .header {
@@ -49,7 +48,7 @@ a {
   display: flex;
   min-width: 450px;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .header-menu__link {
@@ -75,26 +74,31 @@ svg {
   padding: 0 0 4px 0;
 }
 
-.wrapper { 
-  min-height: 470px;
-  display: flex;
-  justify-content: center;
+.product-img__img {
+  max-width: 30%;
 }
 
-.wrapper-basket {
+.product-img__slider-img {
+  max-width: 4.75%;
+}
+
+.product-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8%;
+  align-items: flex-start;
 }
 
-.wrapper-basket__title {
-  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 3%;
+.product-text__title {
+  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1.5%;
 }
 
-.wrapper-basket__btn {
+.product-text__price {
+  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 2%;
+}
+
+.product-text__btn {
   background-color: #000;
   color: #fff;
   font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
@@ -105,12 +109,36 @@ svg {
   outline: none;
   border: 2px solid transparent;
   transition: all .3s;
+  margin-bottom: 3%;
 }
 
-.wrapper-basket__btn:hover {
+.product-text__btn:hover {
   border: 2px solid #000;
   background-color: #fff;
   color: #000;
+}
+
+.product-info {
+  min-width: 30%;
+}
+
+.product-info__text {
+  font: normal 500 26px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1.5%;
+}
+
+.product-info__list-set {
+  font: normal 500 22px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1%;
+}
+
+.product-info__list-list {
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: .7%;
+}
+
+.product-info__list-ps {
+  font: normal 500 23px/110% 'Darker Grotesque', sans-serif;
 }
 
 .footer {
@@ -141,6 +169,9 @@ svg {
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0 2%;
+  /* justify-content: center; */
+  /* margin-top: 1.5%;*/
+  /* min-width: 45%; */
 }
 
 .contacts-us__title, 
@@ -163,7 +194,7 @@ svg {
 }
 
 .face {
-  margin-right: 5%;
+  margin-right: 6.5%;
 }
 
 .contacts-wrap,
@@ -199,6 +230,7 @@ svg {
 }
 
 @media(max-width: 768px) {
+
   .header {
     justify-content: flex-start;
   }
@@ -215,17 +247,9 @@ svg {
     display: none;
   }
 
-  .wrapper-basket__title {
-    font-size: 36px;
-    margin-bottom: 6%;
-  }
-
-  .wrapper-basket__btn {
-    padding: 12px 35px;
-  }
-
   .contacts-footer__where {
     min-width: 320px;
+    /* justify-content: space-around; */
     flex-wrap: wrap;
   }
 
@@ -253,8 +277,8 @@ svg {
   .contacts-us__phone,
   .follow-us__inst,
   .follow-us__facebook {
-    width: 25px;
-  }
+  width: 25px;
+  } 
 }
 
 @media (max-width: 380px) {
@@ -274,11 +298,6 @@ svg {
     font-size: 28px;
   }
 
-  .wrapper-basket__title {
-    font-size: 28px;
-    margin-bottom: 12%;
-  }
-
   .contacts {
     flex-direction: column;
     align-items: center;
@@ -287,4 +306,5 @@ svg {
   /*.contacts-us {
     margin-left: 6.5%;
   }*/
+  
 }
