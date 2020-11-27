@@ -118,28 +118,52 @@ svg:active {
   padding: 0 0 4px 0;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+}
+
+.product-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2%;
+}
+
 .product-img__img {
   max-width: 30%;
+  margin-bottom: 1%;
+}
+
+.product-img__slider {
+  display: flex;
+  max-width: 30%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .product-img__slider-img {
-  max-width: 4.75%;
+  max-width: 15%;
 }
 
 .product-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  max-width: 90%;
+  margin: auto;
 }
 
 .product-text__title {
   font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 1.5%;
+  margin-bottom: 1%;
 }
 
 .product-text__price {
   font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
 .product-text__btn {
@@ -153,7 +177,7 @@ svg:active {
   outline: none;
   border: 2px solid transparent;
   transition: all .3s;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
 
 .product-text__btn:hover {
@@ -169,25 +193,42 @@ svg:active {
 
 .product-info {
   min-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .product-info__text {
   font: normal 500 26px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 1.5%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.product-info__list {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  align-items: center;
 }
 
 .product-info__list-set {
   font: normal 500 22px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+ul {
+  margin-bottom: 2%;
 }
 
 .product-info__list-list {
   font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: .7%;
+  margin-bottom: 1%;
 }
 
 .product-info__list-ps {
-  font: normal 500 23px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 20px/110% 'Darker Grotesque', sans-serif;
+  text-align: center;
 }
 
 .footer {
@@ -299,6 +340,7 @@ svg:active {
   .header-menu {
     display: none;
     opacity: 0;
+    min-width: 0;
   }
 
   .header-burger {
@@ -355,6 +397,19 @@ svg:active {
     animation: opacity 1s;
   }
 
+  .product-img__img,
+  .product-img__slider {
+    max-width: 40%;
+  }
+
+  .product-text__title {
+    font-size: 36px;
+  }
+
+  .product-text__btn {
+    padding: 12px 35px;
+  }
+
   .contacts-footer__where {
     min-width: 320px;
     /* justify-content: space-around; */
@@ -385,7 +440,7 @@ svg:active {
   .contacts-us__phone,
   .follow-us__inst,
   .follow-us__facebook {
-  width: 25px;
+    width: 25px;
   } 
 }
 
@@ -409,6 +464,49 @@ svg:active {
   .contacts {
     flex-direction: column;
     align-items: center;
+  }
+
+  .product-img__img,
+  .product-img__slider {
+    max-width: 50%;
+  }
+
+  .product-text__title {
+    font-size: 28px;
+    margin-bottom: 4%;
+  }
+
+  .product-text__price {
+    font-size: 20px;
+    margin-bottom: 4%;
+  }
+
+  .product-text__btn {
+    padding: 10px 25px;
+    margin-bottom: 4%;
+  }
+
+  .product-info__text {
+    font-size: 22px;
+    margin-bottom: 3%;
+  }
+
+  .product-info__list-set {
+    font-size: 17px;
+    margin-bottom: 3%;
+  }
+
+  .product-info__list-list {
+    font-size: 16px;
+    margin-bottom: 1.8%;
+  }
+
+  ul {
+    margin-bottom: 3%;
+  }
+
+  .product-info__list-ps {
+    font-size: 17px;
   }
 
   /*.contacts-us {
