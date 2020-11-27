@@ -415,6 +415,7 @@ svg:active {
   .header-menu {
     display: none;
     opacity: 0;
+    min-width: 0;
   }
 
   .header-burger {

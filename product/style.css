@@ -138,7 +138,7 @@ svg:active {
 
 .product-img__slider {
   display: flex;
-  max-width: 30%;
+  max-width: 40%;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -192,7 +192,7 @@ svg:active {
 }
 
 .product-info {
-  min-width: 30%;
+  min-width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -399,7 +399,7 @@ ul {
 
   .product-img__img,
   .product-img__slider {
-    max-width: 40%;
+    max-width: 80%;
   }
 
   .product-text__title {
