@@ -66,8 +66,18 @@ a {
   opacity: .8;
 }
 
+.header-menu__link:active {
+  color: #e0dfb1;
+  transition: .2s ease;
+}
+
 svg {
   fill: white;
+}
+
+svg:active {
+  fill: #e0dfb1;
+  transition: .2s ease;
 }
 
 .active {
@@ -111,6 +121,11 @@ svg {
   border: 2px solid #000;
   background-color: #fff;
   color: #000;
+}
+
+.wrapper-basket__btn:active {
+  background-color: #e0e0e0;
+  transition: .2s ease;
 }
 
 .footer {
