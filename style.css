@@ -16,10 +16,19 @@ body {
   min-width: 320px;
 }
 
+.wrap-basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  min-width: 320px;
+}
+
 a {
   text-decoration: none;
 }
 
+/*HEADER*/
 .header {
   background-color: #000;
   min-height: 100px;
@@ -40,11 +49,26 @@ a {
   cursor: default;
 }
 
+.header-logo__title-basket,
+.header-logo__title-product {
+  color: #fff;
+  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
 .header-menu {
   display: flex;
   min-width: 450px;
   align-items: center;
   justify-content: space-between;
+}
+
+.header-menu-basket {
+  display: flex;
+  min-width: 450px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .header-menu__link {
@@ -124,6 +148,7 @@ svg:active {
   padding: 0 0 4px 0;
 }
 
+/*SECTION 1*/
 .home {
   max-width: 1280px;
   padding: 0 2%;
@@ -179,6 +204,7 @@ svg:active {
   max-width: 45%;
 }
 
+/*SECTION 2*/
 .about {
   background: #fafafa;
 }
@@ -233,6 +259,7 @@ svg:active {
   margin-bottom: 15%;
 }
 
+/*SECTION 3*/
 .coffe {
   margin: 3% 0;
   display: flex;
@@ -319,6 +346,165 @@ svg:active {
   transition: .2s ease;
 }
 
+/*SECTION BASKET*/
+.wrapper { 
+  min-height: 470px;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper-basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8%;
+}
+
+.wrapper-basket__title {
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 3%;
+}
+
+.wrapper-basket__btn {
+  background-color: #000;
+  color: #fff;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  border: none;
+  padding: 15px 45px;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid transparent;
+  transition: all .3s;
+}
+
+.wrapper-basket__btn:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.wrapper-basket__btn:active {
+  background-color: #e0e0e0;
+  transition: .2s ease;
+}
+
+/*SECTION PRODUCT*/
+.product-product {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+}
+
+.product-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2%;
+}
+
+.product-img__img {
+  max-width: 40%;
+  margin-bottom: 1%;
+}
+
+.product-img__slider {
+  display: flex;
+  max-width: 40%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-img__slider-img {
+  max-width: 15%;
+}
+
+.product-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  margin: auto;
+}
+
+.product-text__title {
+  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1%;
+}
+
+.product-text__price {
+  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1%;
+}
+
+.product-text__btn {
+  background-color: #000;
+  color: #fff;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  letter-spacing: 0.06em;
+  border: none;
+  padding: 15px 45px;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid transparent;
+  transition: all .3s;
+  margin-bottom: 2%;
+}
+
+.product-text__btn:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.product-text__btn:active {
+  background-color: #e0e0e0;
+  transition: .2s ease;
+}
+
+.product-info {
+  min-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-info__text {
+  font: normal 500 26px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.product-info__list {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  align-items: center;
+}
+
+.product-info__list-set {
+  font: normal 500 22px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+ul {
+  margin-bottom: 2%;
+}
+
+.product-info__list-list {
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+  margin-bottom: 1%;
+}
+
+.product-info__list-ps {
+  font: normal 500 20px/110% 'Darker Grotesque', sans-serif;
+  text-align: center;
+}
+
+/*FOOTER*/
 .footer {
   background: #000;
 }
@@ -354,6 +540,16 @@ svg:active {
   font: normal 500 35px/110% 'Darker Grotesque', sans-serif;
   color: #fff;
   margin-bottom: 5%;
+}
+
+.active-link:hover {
+  transition: all .3s;
+  opacity: .8;
+}
+
+.active-link:active {
+  color: #e0dfb1;
+  transition: .2s ease;
 }
 
 .contacts-footer__where {
