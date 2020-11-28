@@ -109,6 +109,16 @@ svg {
   fill: white;
 }
 
+.svg-social {
+  width: 48px;
+  height: 48px;
+}
+
+svg:hover {
+  transition: all .3s;
+  opacity: .8;
+}
+
 svg:active {
   fill: #e0dfb1;
   transition: .2s ease;
@@ -322,6 +332,11 @@ svg:active {
     left: 0;
     opacity: 1;
     animation: opacity 1s;
+  }
+
+  .svg-social {
+    width: 38px;
+    height: 38px;
   }
 
   .wrapper-basket__title {

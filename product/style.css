@@ -108,6 +108,16 @@ svg {
   fill: white;
 }
 
+.svg-social {
+  width: 48px;
+  height: 48px;
+}
+
+svg:hover {
+  transition: all .3s;
+  opacity: .8;
+}
+
 svg:active {
   fill: #e0dfb1;
   transition: .2s ease;
@@ -132,7 +142,7 @@ svg:active {
 }
 
 .product-img__img {
-  max-width: 30%;
+  max-width: 40%;
   margin-bottom: 1%;
 }
 
@@ -395,6 +405,11 @@ ul {
     left: 0;
     opacity: 1;
     animation: opacity 1s;
+  }
+
+  .svg-social {
+    width: 38px;
+    height: 38px;
   }
 
   .product-img__img,
