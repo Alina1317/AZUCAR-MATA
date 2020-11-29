@@ -356,6 +356,8 @@ a {
 
 .svg-add {
   fill: white;
+  width: 32px;
+  height: 32px;
 }
 
 .coffe-shop__add-basket {
@@ -367,6 +369,7 @@ a {
   outline: none;
   border: 2px solid transparent;
   transition: all .3s;
+  /*position: absolute;*/
 }
 
 .svg-add:hover {
@@ -387,6 +390,27 @@ a {
   background-color: #e0e0e0;
   transition: .2s ease;
 }
+
+#total {
+  display: none;
+}
+
+/*#total {
+  color: #000;
+  background-color: #fff;
+  border-radius: 50%;
+  border: .5px solid #000;
+  width: 25px;
+  height: 25px;
+  left: 30px;
+  bottom: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}*/
 
 /*SECTION BASKET*/
 .wrapper { 
@@ -785,10 +809,6 @@ ul {
     min-width: 250px;
   }
 
-  .contacts-us__title,
-  .follow-us__title {
-    font-size: 30px;
-  }
 
   .coffe-shop__price {
     font-size: 20px;
@@ -796,6 +816,21 @@ ul {
 
   .coffe-shop__bye {
     padding: 12px 35px;
+  }
+
+  .svg-add {
+    fill: white;
+    width: 28px;
+    height: 28px;
+  }
+
+  .coffe-shop__add-basket {
+    padding: 4.5px;
+  }
+
+  .contacts-us__title,
+  .follow-us__title {
+    font-size: 30px;
   }
 
   .contacts-footer__where {
@@ -914,7 +949,18 @@ ul {
   }
 
   .coffe-shop__bye {
-    padding: 10px 25px;
+    padding: 10px 20px;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+
+  .svg-add {
+    width: 25px;
+    height: 25px;
+  }
+
+  .coffe-shop__add-basket {
+    padding: 2.8px;
   }
 
   .contacts {
