@@ -124,7 +124,7 @@ a {
   bottom: 0;
 }
 
-svg {
+.svg {
   fill: white;
 }
 
@@ -133,12 +133,12 @@ svg {
   height: 48px;
 }
 
-svg:hover {
+.svg:hover {
   transition: all .3s;
   opacity: .8;
 }
 
-svg:active {
+.svg:active {
   fill: #e0dfb1;
   transition: .2s ease;
 }
@@ -317,10 +317,18 @@ svg:active {
   font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
 }
 
-.coffe-shop__link-bye {
+.coffe-shop-add {
+  min-width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*.coffe-shop__link-bye,
+.coffe-shop__link-basket {
   margin: 0 0 2% 0;
   border: 2px solid transparent; 
-}
+}*/
 
 .coffe-shop__bye {
   background-color: #000;
@@ -342,6 +350,36 @@ svg:active {
 }
 
 .coffe-shop__bye:active {
+  background-color: #e0e0e0;
+  transition: .2s ease;
+}
+
+.svg-add {
+  fill: white;
+}
+
+.coffe-shop__add-basket {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 6.5px;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid transparent;
+  transition: all .3s;
+}
+
+.svg-add:hover {
+  fill: black;
+}
+
+.coffe-shop__add-basket:hover {
+  border: 2px solid #000;
+  background-color: #fff;
+  transition: .2s ease;
+}
+
+.coffe-shop__add-basket:active {
   background-color: #e0e0e0;
   transition: .2s ease;
 }
