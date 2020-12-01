@@ -5,8 +5,7 @@ input, button {
 *{
   margin: 0;
   /* padding: 0; */
-  /*font-family: 'Darker Grotesque', sans-serif;*/
-  font-family: 'Arial', sans-serif;
+  font-family: 'Arial','Darker Grotesque', sans-serif;
 }
 
 body {
@@ -163,23 +162,23 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-align: center;
 }
 
 .home-content__title {
-  font: normal 500 38px/110% 'Arial', sans-serif;
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 5%;
 }
 
 .home-content__text {
-  font: normal normal 32px/130% 'Arial', sans-serif;
+  font: normal normal 32px/130% 'Darker Grotesque', sans-serif;
   margin-bottom: 12%;
+  max-width: 70%;
 }
 
 .home-content__btn {
   background-color: #000;
   color: #fff;
-  font: normal 500 18px/110% 'Arial', sans-serif;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -225,12 +224,12 @@ a {
 }
 
 .content-us__title {
-  font: normal 500 38px/110% 'Arial', sans-serif;
+  font: normal bold 38px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 3%;
 }
 
 .content-us__text {
-  font: normal normal 22px/110% 'Arial', sans-serif;
+  font: normal normal 22px/110% 'Darker Grotesque', sans-serif;
   text-align: center;
 }
 
@@ -254,7 +253,7 @@ a {
 
 .content-img__coffe-text,
 .content-img__cup-text {
-  font: normal normal 20px/110% 'Arial', sans-serif;
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
   text-align: center;
   margin-bottom: 15%;
 }
@@ -269,7 +268,7 @@ a {
 }
 
 .coffe-title {
-  font: normal 500 38px/110% 'Arial', sans-serif;
+  font: normal bold 38px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 1.5%;
 }
 
@@ -310,11 +309,11 @@ a {
 }
 
 .coffe-shop__text {
-  font: normal 500 28px/110% 'Arial', sans-serif;
+  font: normal bold 28px/110% 'Darker Grotesque', sans-serif;
 }
 
 .coffe-shop__price {
-  font: normal 500 24px/110% 'Arial', sans-serif;
+  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
 }
 
 .coffe-shop-add {
@@ -333,7 +332,7 @@ a {
 .coffe-shop__bye {
   background-color: #000;
   color: #fff;
-  font: normal 500 18px/110% 'Arial', sans-serif;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -364,7 +363,7 @@ a {
   background-color: #000;
   color: #fff;
   border: none;
-  padding: 6.5px;
+  padding: 7px;
   cursor: pointer;
   outline: none;
   border: 2px solid transparent;
@@ -428,7 +427,7 @@ a {
 }
 
 .wrapper-basket__title {
-  font: normal 500 38px/110% 'Arial', sans-serif;
+  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 7%;
   text-align: center;
 }
@@ -436,7 +435,7 @@ a {
 .wrapper-basket__btn {
   background-color: #000;
   color: #fff;
-  font: normal 500 18px/110% 'Arial', sans-serif;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -497,19 +496,19 @@ a {
 }
 
 .product-text__title {
-  font: normal bold 40px/110% 'Arial', sans-serif;
+  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 2%;
 }
 
 .product-text__price {
-  font: normal 500 24px/110% 'Arial', sans-serif;
+  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 2%;
 }
 
 .product-text__btn {
   background-color: #000;
   color: #fff;
-  font: normal 500 18px/110% 'Arial', sans-serif;
+  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -539,7 +538,7 @@ a {
 }
 
 .product-info__text {
-  font: normal 500 26px/110% 'Arial', sans-serif;
+  font: normal 500 26px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 3%;
   text-align: center;
 }
@@ -552,7 +551,7 @@ a {
 }
 
 .product-info__list-set {
-  font: normal bold 22px/110% 'Arial', sans-serif;
+  font: normal bold 22px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 2.5%;
   text-align: center;
 }
@@ -562,12 +561,12 @@ ul {
 }
 
 .product-info__list-list {
-  font: normal normal 20px/110% 'Arial', sans-serif;
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 1.5%;
 }
 
 .product-info__list-ps {
-  font: normal bold 20px/110% 'Arial', sans-serif;
+  font: normal bold 20px/110% 'Darker Grotesque', sans-serif;
   text-align: center;
 }
 
@@ -611,7 +610,7 @@ ul {
 
 .contacts-us__title, 
 .follow-us__title {
-  font: normal bold 35px/110% 'ArialArial', sans-serif;
+  font: normal bold 35px/110% 'Darker Grotesque', sans-serif;
   color: #fff;
   margin-bottom: 5%;
 }
@@ -660,14 +659,14 @@ ul {
 .contacts-wrap__mail-email,
 .follow-wrap__instagram-inst {
   color: #fff;
-  font: normal 500 25px/110% 'Arial', sans-serif;
+  font: normal 500 25px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 3%;
 }
 
 .contacts-wrap__mail-gmail,
 .follow-wrap__instagram-account {
   color: #fff;
-  font: normal normal 20px/110% 'Arial', sans-serif;
+  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
 }
 
 @media(max-width: 768px) {
@@ -806,6 +805,7 @@ ul {
 
   .home-content__text {
     font-size: 28px;
+    text-align: center;
   }
 
   .home-content__btn {
@@ -869,7 +869,7 @@ ul {
   }
 
   .coffe-shop__add-basket {
-    padding: 4.5px;
+    padding: 5px;
   }
 
   .wrapper-basket__title {
@@ -954,7 +954,8 @@ ul {
     font-size: 18px;
   }
 
-  .content-img__coffe, .content-img__cup {
+  .content-img__coffe, 
+  .content-img__cup {
     max-width: 70%;
   }
 
