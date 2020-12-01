@@ -5,7 +5,8 @@ input, button {
 *{
   margin: 0;
   /* padding: 0; */
-  font-family: 'Darker Grotesque', sans-serif;
+  /*font-family: 'Darker Grotesque', sans-serif;*/
+  font-family: 'Arial', sans-serif;
 }
 
 body {
@@ -35,7 +36,6 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 7%;
 }
 
 .header-logo {
@@ -44,7 +44,7 @@ a {
 
 .header-logo__title {
   color: #fff;
-  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  font: normal bold 40px/110% 'Arial', sans-serif;
   letter-spacing: 0.06em;
   cursor: default;
 }
@@ -52,7 +52,7 @@ a {
 .header-logo__title-basket,
 .header-logo__title-product {
   color: #fff;
-  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
+  font: normal bold 40px/110% 'Arial', sans-serif;
   letter-spacing: 0.06em;
   cursor: pointer;
 }
@@ -64,7 +64,7 @@ a {
   justify-content: space-between;
 }
 
-.header-menu-basket {
+.basket {
   display: flex;
   min-width: 450px;
   align-items: center;
@@ -73,7 +73,7 @@ a {
 
 .header-menu__link {
   color: #fff;
-  font: normal normal 16px/110% 'Darker Grotesque', sans-serif;
+  font: normal normal 16px/110% 'Arial', sans-serif;
   text-decoration: none;
   padding: 0 0 4px 0;
   border-bottom: 2px solid transparent;
@@ -151,11 +151,10 @@ a {
 /*SECTION 1*/
 .home {
   max-width: 1280px;
-  padding: 0 2%;
+  padding: 7% 2%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 7%;
 }
 
 .home-content {
@@ -167,19 +166,19 @@ a {
 }
 
 .home-content__title {
-  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 38px/110% 'Arial', sans-serif;
   margin-bottom: 5%;
 }
 
 .home-content__text {
-  font: normal 500 32px/130% 'Darker Grotesque', sans-serif;
+  font: normal normal 32px/130% 'Arial', sans-serif;
   margin-bottom: 12%;
 }
 
 .home-content__btn {
   background-color: #000;
   color: #fff;
-  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 18px/110% 'Arial', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -216,7 +215,7 @@ a {
 }
 
 .content-us {
-  margin: 5% 0 3% 0;
+  margin: 4% 0 3% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -225,12 +224,12 @@ a {
 }
 
 .content-us__title {
-  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 38px/110% 'Arial', sans-serif;
   margin-bottom: 3%;
 }
 
 .content-us__text {
-  font: normal normal 22px/110% 'Darker Grotesque', sans-serif;
+  font: normal normal 22px/110% 'Arial', sans-serif;
   text-align: center;
 }
 
@@ -254,7 +253,7 @@ a {
 
 .content-img__coffe-text,
 .content-img__cup-text {
-  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+  font: normal normal 20px/110% 'Arial', sans-serif;
   text-align: center;
   margin-bottom: 15%;
 }
@@ -269,7 +268,7 @@ a {
 }
 
 .coffe-title {
-  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 38px/110% 'Arial', sans-serif;
   margin-bottom: 1.5%;
 }
 
@@ -310,11 +309,11 @@ a {
 }
 
 .coffe-shop__text {
-  font: normal 500 28px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 28px/110% 'Arial', sans-serif;
 }
 
 .coffe-shop__price {
-  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 24px/110% 'Arial', sans-serif;
 }
 
 .coffe-shop-add {
@@ -333,7 +332,7 @@ a {
 .coffe-shop__bye {
   background-color: #000;
   color: #fff;
-  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 18px/110% 'Arial', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -377,7 +376,7 @@ a {
 }
 
 .coffe-shop__add-basket:hover .svg-add {
-    fill: black;
+  fill: black;
 }
 
 .coffe-shop__add-basket:hover {
@@ -424,18 +423,19 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8%;
+  margin: 0 8%;
 }
 
 .wrapper-basket__title {
-  font: normal 500 38px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 3%;
+  font: normal 500 38px/110% 'Arial', sans-serif;
+  margin-bottom: 7%;
+  text-align: center;
 }
 
 .wrapper-basket__btn {
   background-color: #000;
   color: #fff;
-  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 18px/110% 'Arial', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -460,7 +460,7 @@ a {
 .product-product {
   display: flex;
   flex-direction: column;
-  margin-bottom: 6%;
+  margin: 6% 0;
 }
 
 .product-img {
@@ -496,19 +496,19 @@ a {
 }
 
 .product-text__title {
-  font: normal bold 40px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 1%;
+  font: normal bold 40px/110% 'Arial', sans-serif;
+  margin-bottom: 2%;
 }
 
 .product-text__price {
-  font: normal 500 24px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 1%;
+  font: normal 500 24px/110% 'Arial', sans-serif;
+  margin-bottom: 2%;
 }
 
 .product-text__btn {
   background-color: #000;
   color: #fff;
-  font: normal bold 18px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 18px/110% 'Arial', sans-serif;
   letter-spacing: 0.06em;
   border: none;
   padding: 15px 45px;
@@ -516,7 +516,7 @@ a {
   outline: none;
   border: 2px solid transparent;
   transition: all .3s;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 
 .product-text__btn:hover {
@@ -538,8 +538,8 @@ a {
 }
 
 .product-info__text {
-  font: normal 500 26px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 2%;
+  font: normal 500 26px/110% 'Arial', sans-serif;
+  margin-bottom: 3%;
   text-align: center;
 }
 
@@ -551,22 +551,22 @@ a {
 }
 
 .product-info__list-set {
-  font: normal 500 22px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 2%;
+  font: normal bold 22px/110% 'Arial', sans-serif;
+  margin-bottom: 2.5%;
   text-align: center;
 }
 
 ul {
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 
 .product-info__list-list {
-  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
-  margin-bottom: 1%;
+  font: normal normal 20px/110% 'Arial', sans-serif;
+  margin-bottom: 1.5%;
 }
 
 .product-info__list-ps {
-  font: normal 500 20px/110% 'Darker Grotesque', sans-serif;
+  font: normal bold 20px/110% 'Arial', sans-serif;
   text-align: center;
 }
 
@@ -580,12 +580,11 @@ ul {
   max-width: 1300px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .contacts-footer {
   display: flex;
-  align-items: center;
   justify-content: space-around;
   min-width: 90%;
   flex-wrap: wrap;
@@ -601,9 +600,17 @@ ul {
   margin: 0 2%;
 }
 
+.contacts-us {
+  margin: 0 8% 0 0;
+}
+
+.follow-us {
+  margin: 0 8%;
+}
+
 .contacts-us__title, 
 .follow-us__title {
-  font: normal 500 35px/110% 'Darker Grotesque', sans-serif;
+  font: normal bold 35px/110% 'ArialArial', sans-serif;
   color: #fff;
   margin-bottom: 5%;
 }
@@ -618,52 +625,48 @@ ul {
   transition: .2s ease;
 }
 
-.contacts-footer__where {
+/*.contacts-footer__where {
   display: flex;
   min-width: 400px;
   justify-content: space-between;
-}
+}*/
 
 .contacts-footer__social {
   display: flex;
-  min-width: 400px;
   justify-content: space-between;
-}
-
-.face {
-  margin-right: 5%;
 }
 
 .contacts-wrap,
 .follow-wrap {
   display: flex;
   align-items: center;
-  margin-bottom: 5%;
 }
 
-.contacts-wrap__where,
-.contacts-wrap__tel,
-.follow-wrap__instagram,
-.follow-wrap__facebook {
+.contacts-wrap {
+  margin-left: 12%;
+}
+
+.contacts-wrap__mail {
+  margin: 0 0 2% 4%;
+  min-width: 90%;
+}
+
+.follow-wrap__instagram {
   margin: 0 0 4% 6%;
   min-width: 90%;
 }
 
-.contacts-wrap__where-address,
-.contacts-wrap__tel-call,
-.follow-wrap__instagram-inst,
-.follow-wrap__facebook-face {
+.contacts-wrap__mail-email,
+.follow-wrap__instagram-inst {
   color: #fff;
-  font: normal bold 25px/110% 'Darker Grotesque', sans-serif;
+  font: normal 500 25px/110% 'Arial', sans-serif;
   margin-bottom: 3%;
 }
 
-.contacts-wrap__where-city,
-.contacts-wrap__tel-number,
-.follow-wrap__instagram-account,
-.follow-wrap__facebook-account {
+.contacts-wrap__mail-gmail,
+.follow-wrap__instagram-account {
   color: #fff;
-  font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
+  font: normal normal 20px/110% 'Arial', sans-serif;
 }
 
 @media(max-width: 768px) {
@@ -680,11 +683,19 @@ ul {
     margin-right: 4%;
   }
 
-  .header-logo__title {
+  .header-logo__title,
+  .header-logo__title-basket,
+  .header-logo__title-product {
     font-size: 36px;
   }
 
   .header-menu {
+    display: none;
+    opacity: 0;
+    min-width: 0;
+  }
+
+  .basket {
     display: none;
     opacity: 0;
     min-width: 0;
@@ -714,15 +725,15 @@ ul {
   }
   
   .header::after {
-     content: '';
-     height: 100vh;
-     width: 100%;
-     position: absolute;
-     left: 0;
-     background: #000;
-     z-index: 1;
-     top: -100vh;
-     transition: .3s ease;
+    content: '';
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background: #000;
+    z-index: 1;
+    top: -100vh;
+    transition: .3s ease;
   }
 
   .toggle.header::after {
@@ -744,11 +755,39 @@ ul {
     animation: opacity 1s;
   }
 
+  .basket.toggle {
+    z-index: 20;
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 80vh;
+    align-items: center;
+    justify-content: space-around;
+    top: 10vh;
+    left: 0;
+    opacity: 1;
+    animation: opacity 1s;
+  }
+
   .svg-social {
     width: 38px;
     height: 38px;
   }
-   
+
+  .product-img__img,
+  .product-img__slider {
+    max-width: 80%;
+  }
+
+  .product-text__title {
+    font-size: 36px;
+  }
+
+  .product-text__btn {
+    padding: 12px 35px;
+  }
+
   .home {
     flex-direction: column;
     align-items: center;
@@ -809,7 +848,6 @@ ul {
     min-width: 250px;
   }
 
-
   .coffe-shop__price {
     font-size: 20px;
   }
@@ -828,58 +866,58 @@ ul {
     padding: 4.5px;
   }
 
+  .wrapper-basket__title {
+    font-size: 36px;
+    margin-bottom: 6%;
+  }
+
+  .wrapper-basket__btn {
+    padding: 12px 35px;
+  }
+
   .contacts-us__title,
   .follow-us__title {
     font-size: 30px;
   }
 
-  .contacts-footer__where {
-    min-width: 320px;
-    flex-wrap: wrap;
-  }
-
   .contacts-footer__social {
     flex-wrap: wrap;
-    min-width: 320px;
     justify-content: space-between;
   }
 
-  .contacts-wrap__where-address,
-  .contacts-wrap__tel-call,
-  .follow-wrap__instagram-inst,
-  .follow-wrap__facebook-face {
+  .contacts-wrap {
+    margin-left: 16%;
+  }
+
+  .contacts-wrap__mail-email,
+  .follow-wrap__instagram-inst {
     font-size: 20px;
   }
 
-  .contacts-wrap__where-city,
-  .contacts-wrap__tel-number,
-  .follow-wrap__instagram-account,
-  .follow-wrap__facebook-account {
+  .contacts-wrap__mail-gmail,
+  .follow-wrap__instagram-account{
     font-size: 16px;
   }
-
-  .contacts-us__geo,
-  .contacts-us__phone,
-  .follow-us__inst,
-  .follow-us__facebook {
-    width: 25px;
-  } 
 }
 
-@media (max-width: 380px) {
-  .contacts-footer__where,
-  .contacts-footer__social {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 510px) {
+  .header-logo__title,
+  .header-logo__title-basket,
+  .header-logo__title-product {
+    font-size: 32px;
   }
 
-  .face {
-    margin-right: 0;
+  .follow-us {
+    margin-right: 18%;
   }
 }
+
+
 
 @media (max-width: 320px) {
-  .header-logo__title {
+  .header-logo__title,
+  .header-logo__title-basket,
+  .header-logo__title-product {
     font-size: 28px;
   }
 
@@ -961,6 +999,57 @@ ul {
 
   .coffe-shop__add-basket {
     padding: 2.8px;
+  }
+
+  .wrapper-basket__title {
+    font-size: 32px;
+  }
+
+  .wrapper-basket__btn {
+    padding: 10px 20px;
+  }
+
+  .product-img__img,
+  .product-img__slider {
+    max-width: 50%;
+  }
+
+  .product-text__title {
+    font-size: 28px;
+    margin-bottom: 4%;
+  }
+
+  .product-text__price {
+    font-size: 20px;
+    margin-bottom: 4%;
+  }
+
+  .product-text__btn {
+    padding: 10px 25px;
+    margin-bottom: 4%;
+  }
+
+  .product-info__text {
+    font-size: 22px;
+    margin-bottom: 3%;
+  }
+
+  .product-info__list-set {
+    font-size: 17px;
+    margin-bottom: 3%;
+  }
+
+  .product-info__list-list {
+    font-size: 16px;
+    margin-bottom: 1.8%;
+  }
+
+  ul {
+    margin-bottom: 3%;
+  }
+
+  .product-info__list-ps {
+    font-size: 17px;
   }
 
   .contacts {
