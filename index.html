@@ -5,49 +5,53 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="fonts.css">
+	<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Darker+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="fonts.css"> -->
 	<title>AZÚCAR MATA</title>
 </head>
 <body>
 	<div class="wrap">
 		<header class="header">
-			<div class="header-logo">
-				<h1 class="header-logo__title">AZUCAR MATA</h1>
-			</div>
-			<div class="nav-menu">
-				<nav class="header-menu">
-					<a class="header-menu__link active" href="#">HOME</a>
-					<a class="header-menu__link" href="#sobre">ABOUT</a>
-					<a class="header-menu__link" href="#prodocto">SHOP</a>
-					<a class="header-menu__link" href="#contactos">CONTACTS</a>
-					<a class="header-menu__link" href="./basket/index.html">
-						<svg class="svg" viewBox="0 0 512 512" height="32" widht="32" xmlns="http://www.w3.org/2000/svg"><g data-name="1"><path d="M397.78 316H192.65A15 15 0 01178 304.33l-34.54-150.48a15 15 0 0114.62-18.36h274.27A15 15 0 01447 153.85l-34.6 150.48A15 15 0 01397.78 316zm-193.19-30h181.25l27.67-120.48h-236.6zM222 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01222 450zm0-84.95a27.48 27.48 0 1027.48 27.47A27.5 27.5 0 00222 365.05zM368.42 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01368.42 450zm0-84.95a27.48 27.48 0 1027.48 27.47 27.5 27.5 0 00-27.48-27.47z"/><path d="M158.08 165.49a15 15 0 01-14.23-10.26L118.14 78H70.7a15 15 0 110-30H129a15 15 0 0114.23 10.26l29.13 87.49a15 15 0 01-14.23 19.74z"/></g></svg>
-					</a>
-				</nav>
-				<div class="header-burger">
-					<span class="header-burger__line"></span>
+			<div class="header-container">
+				<div class="header-wrap">
+					<div class="header-logo">
+						<h1 class="header-logo__title">AZÚCAR MATA</h1>
+					</div>
+					<div class="nav-menu">
+						<nav class="header-menu">
+							<a class="header-menu__link active" href="#">HOME</a>
+							<a class="header-menu__link" href="#sobre">ABOUT</a>
+							<a class="header-menu__link" href="#prodocto">SHOP</a>
+							<a class="header-menu__link" href="#contactos">CONTACTS</a>
+							<a class="header-menu__link" href="./basket/index.html">
+								<svg class="svg" viewBox="0 0 512 512" height="32" widht="32" xmlns="http://www.w3.org/2000/svg"><g data-name="1"><path d="M397.78 316H192.65A15 15 0 01178 304.33l-34.54-150.48a15 15 0 0114.62-18.36h274.27A15 15 0 01447 153.85l-34.6 150.48A15 15 0 01397.78 316zm-193.19-30h181.25l27.67-120.48h-236.6zM222 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01222 450zm0-84.95a27.48 27.48 0 1027.48 27.47A27.5 27.5 0 00222 365.05zM368.42 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01368.42 450zm0-84.95a27.48 27.48 0 1027.48 27.47 27.5 27.5 0 00-27.48-27.47z"/><path d="M158.08 165.49a15 15 0 01-14.23-10.26L118.14 78H70.7a15 15 0 110-30H129a15 15 0 0114.23 10.26l29.13 87.49a15 15 0 01-14.23 19.74z"/></g></svg>
+							</a>
+						</nav>
+						<div class="header-burger">
+							<span class="header-burger__line"></span>
+						</div>
+					</div>
 				</div>
-			</div>
+			</div>	
 		</header>
 		<main>
 			<section class="home-wrapper">
-				<div class="home">
+				<div class="home header-container">
 					<div class="home-content">
-						<h2 class="home-content__title"><strong>AZUCAR MATA</strong></h2>
+						<h2 class="home-content__title"><strong>AZÚCAR MATA</strong></h2>
 						<p class="home-content__text">Pop-up speciality coffee events and curated coffee sets from Barcelona</p>
 						<button class="home-content__btn">Learn more</button>
 					</div>
-					<img class="home-img" src="img/azucar mata.jpg" alt="azucar mata">
+					<div class="home-img"></div>
 				</div>
 			</section>
 			<section class="about" id="sobre">
 				<div class="content">
 					<div class="content-us">
 						<h3 class="content-us__title">Who are we?</h3>
-						<p class="content-us__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi modi alias enim ut quis dolor, qui quae similique vel voluptatum. Eveniet nesciunt, esse, autem illo nemo fuga distinctio tempore dignissimos?</p>
+						<p class="content-us__text">Hola! We are a group of professionals in the specialty coffee industry who want to share these incredible beans. We have lovingly chosen and packaged everything. Especially for you! Thanks, greetings and remember that sugar kills good coffee!</p>
 					</div>
-					<div class="content-img">
+					<!-- <div class="content-img">
 						<div class="content-img__coffe">
 							<img class="content-img__coffe-img" src="img/coffeemaker.png" alt="coffeemaker">
 							<p class="content-img__coffe-text">Lorem ipsum dolor sit amet, consectetur adipisicing, elit.</p>
@@ -55,13 +59,13 @@
 						<div class="content-img__cup">
 							<img class="content-img__cup-img" src="img/cup-of-coffee.png" alt="cup-of-coffee">
 							<p class="content-img__cup-text">Corrupti voluptates amet possimus numquam, mollitia eum repellat fugiat assumenda asperiores rerum.</p>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</section>
 			<section class="product" id="prodocto">
 				<div class="coffe">
-					<h3 class="coffe-title">AZUCAR MATA shop</h3>
+					<h3 class="coffe-title">AZÚCAR MATA shop</h3>
 					<div class="coffe-shop">
 						<a class="coffe-shop__link" href="./product/index.html"><img class="coffe-shop__img" src="img/azucar.jpg" alt="coffe"></a>
 						<div class="price">
@@ -73,7 +77,7 @@
 							<a class="coffe-shop__link-bye" href="./basket/index.html"><button id="basket" class="coffe-shop__add-basket">
 								<svg class="svg-add" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g data-name="1"><path d="M397.78 316H192.65A15 15 0 01178 304.33l-34.54-150.48a15 15 0 0114.62-18.36h274.27A15 15 0 01447 153.85l-34.6 150.48A15 15 0 01397.78 316zm-193.19-30h181.25l27.67-120.48h-236.6zM222 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01222 450zm0-84.95a27.48 27.48 0 1027.48 27.47A27.5 27.5 0 00222 365.05zM368.42 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01368.42 450zm0-84.95a27.48 27.48 0 1027.48 27.47 27.5 27.5 0 00-27.48-27.47z"/><path d="M158.08 165.49a15 15 0 01-14.23-10.26L118.14 78H70.7a15 15 0 110-30H129a15 15 0 0114.23 10.26l29.13 87.49a15 15 0 01-14.23 19.74z"/></g></svg> 
 							</button>
-							<span id="total">0</span>
+							<span class="total">0</span>
 							</a> 
 						</div>
 					</div>
