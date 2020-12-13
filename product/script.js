@@ -9,6 +9,7 @@ burg.onclick = () => {
 	header.classList.toggle('toggle');
 };
 
+
 // Найти все ссылки начинающиеся на #
 const anchors = document.querySelectorAll('a[href^="#"]')
 
@@ -26,18 +27,11 @@ for(let anchor of anchors) {
   })
 };
 
-//Добавляем клик на кнопку купить сейчас и тележку
-const btnBuy = document.querySelector('.coffe-shop__bye'),
- 	btnBasket = document.querySelector('.coffe-shop__add-basket'),
-	total = document.querySelector('.total');
-let count = 0;
+//Клик по кнопке добавить в корзину и появление кнопки перейти в корзину
+ const btnAddToCart = document.querySelector('.product-text__btn'),
+  	btnGoToCart = document.querySelector('.none');
 
-btnBuy.addEventListener('click', (e) => {
-	//console.log(e.target);
-	if(e.target) {
-		count++;
-		btnBasket.classList.add('top');
-		total.className = 'num';
-		total.textContent = count;
-	}
+ btnAddToCart.addEventListener('click', (e) => {
+	btnGoToCart.className = 'product-basket__btn';
+	btnGoToCart.classList.add('go');
 });
