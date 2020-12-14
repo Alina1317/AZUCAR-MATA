@@ -67,14 +67,10 @@ minus.addEventListener('click', e => {
 
 
 //нажатие на кнопку и появление блока доставка
-continueBtn.addEventListener('click', e => {
-	noneBlock.forEach(item => {
-		// item.style.opacity = '1';
+continueBtn.onclick = e => {
 		deliveryBlock.className = 'wrapper-delivery';
-		//deliveryBlock.style.opacity = 1;
-		deliveryBlock.classList.add('opacity');
-	});
-});
+		setTimeout(() => deliveryBlock.style.opacity = 1, 100)
+}
 
 deliveryBtn.forEach(item => {
 	item.onclick = e => {
@@ -92,7 +88,7 @@ deliveryBtn.forEach(item => {
 			modalBlock.classList.add('none');
 		}
 	}
-	console.log(modalBlock);
+	// console.log(modalBlock);
 })
 
 //нажатие на кнопку pickup и появление адреса
