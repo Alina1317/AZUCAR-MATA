@@ -11,6 +11,7 @@ let	num = document.getElementById('num'),
 const sortCheckbox = document.querySelectorAll('.sort'),
 	continueBtn = document.getElementById('continue'),
 	deliveryBlock = document.getElementById('delivery'),
+	deliveryBtn = document.querySelectorAll('.transfer'),
 	noneBlock = document.querySelectorAll('.none'),
 	pickupBtn = document.getElementById('pickup-btn'),
 	pickupAddress = document.getElementById('pickup-address'),
@@ -33,7 +34,7 @@ const anchors = document.querySelectorAll('a[href^="#"]')
 
 // Цикл по всем ссылкам
 for(let anchor of anchors) {
-  anchor.addEventListener("click", function(e) {
+  anchor.addEventListener('click', function(e) {
     e.preventDefault() // Предотвратить стандартное поведение ссылок
     // Атрибут href у ссылки, если его нет то перейти к body (наверх не плавно)
     const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body'
@@ -50,7 +51,6 @@ plus.addEventListener('click', e => {
 	if (e.target) {
 		count++;
 		num.textContent = count;
-		sumTotal();
 	}
 });
 
@@ -76,20 +76,39 @@ continueBtn.addEventListener('click', e => {
 	});
 });
 
+deliveryBtn.forEach(item => {
+	item.onclick = e => {
+		if(e.target === pickupBtn) {
+			pickupAddress.classList.remove('none');
+			modalBlock.classList.add('none');
+			modalForm.classList.add('none');
+		} else if (e.target === spainBtn) {
+			modalBlock.classList.remove('none');
+			pickupAddress.classList.add('none');
+			modalForm.classList.add('none');
+		} else {
+			modalForm.classList.remove('none');
+			pickupAddress.classList.add('none');
+			modalBlock.classList.add('none');
+		}
+	}
+	console.log(modalBlock);
+})
+
 //нажатие на кнопку pickup и появление адреса
-pickupBtn.addEventListener('click', e => {
-	pickupAddress.classList.toggle('none');
-});
+// pickupBtn.addEventListener('click', e => {
+// 	pickupAddress.classList.toggle('none');
+// });
 
 //нажатие на кнопку spain и появление формы
-spainBtn.addEventListener('click', e => {
-	modalBlock.classList.toggle('none');
-});
+// spainBtn.addEventListener('click', e => {
+// 	modalBlock.classList.toggle('none');
+// });
 
 //нажатие на кнопку europe и появление формы
-europeBtn.addEventListener('click', e => {
-	modalForm.classList.toggle('none');
-});
+// europeBtn.addEventListener('click', e => {
+// 	modalForm.classList.toggle('none');
+// });
 
 //нажатие на кнопку Proceed to payment и появление блока Payment
 proceedBtn.forEach(item => {
@@ -97,18 +116,3 @@ proceedBtn.forEach(item => {
 		paymentBlock.classList.toggle('none');
 	})
 });
-
-
-//расчет стоимости товара
-//const sumTotal = e => {
-//	let sumPrice;
-//	sumPrice = count * +subtotal;
-//	subtotal.textContent = sumPrice;
-//	total.textContent = sumPrice;
-//};
-
-//subtotal.addEventListener('mouseover', e => {
-//	console.log(e);
-//	console.log(e.target.textContent);
-//	console.log(typeof(e.target.textContent));
-//})
