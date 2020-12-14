@@ -16,7 +16,7 @@ const sortCheckbox = document.querySelectorAll('.sort'),
 	pickupBtn = document.getElementById('pickup-btn'),
 	pickupAddress = document.getElementById('pickup-address'),
 	spainBtn = document.getElementById('spain-btn'),
-	modalBlock = document.getElementById('modal'),
+	modalBlock = document.querySelectorAll('.modal'),
 	europeBtn = document.getElementById('europe-btn'),
 	modalForm = document.getElementById('modal-form'),
 	proceedBtn = document.querySelectorAll('.proceed'),
@@ -72,24 +72,11 @@ continueBtn.onclick = e => {
 		setTimeout(() => deliveryBlock.style.opacity = 1, 100)
 }
 
-deliveryBtn.forEach(item => {
-	item.onclick = e => {
-		if(e.target === pickupBtn) {
-			pickupAddress.classList.remove('none');
-			modalBlock.classList.add('none');
-			modalForm.classList.add('none');
-		} else if (e.target === spainBtn) {
-			modalBlock.classList.remove('none');
-			pickupAddress.classList.add('none');
-			modalForm.classList.add('none');
-		} else {
-			modalForm.classList.remove('none');
-			pickupAddress.classList.add('none');
-			modalBlock.classList.add('none');
-		}
-	}
-	// console.log(modalBlock);
-})
+deliveryBtnOnClick = (e) => {
+	modalBlock.forEach(modal => modal.classList.add('none'))
+	e.currentTarget.nextElementSibling.classList.remove('none')
+}
+deliveryBtn.forEach(button => button.addEventListener("click", deliveryBtnOnClick))
 
 //нажатие на кнопку pickup и появление адреса
 // pickupBtn.addEventListener('click', e => {
