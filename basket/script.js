@@ -73,8 +73,13 @@ continueBtn.onclick = e => {
 }
 
 deliveryBtnOnClick = (e) => {
-	modalBlock.forEach(modal => modal.classList.add('none'))
-	e.currentTarget.nextElementSibling.classList.remove('none')
+	let modal = e.currentTarget.nextElementSibling;
+	modalBlock.forEach(modal => {
+		modal.classList.add('none')
+		modal.classList.remove('opacity')
+	})
+	modal.classList.remove('none')
+	setTimeout(() => modal.classList.add('opacity'), 100)
 }
 deliveryBtn.forEach(button => button.addEventListener("click", deliveryBtnOnClick))
 

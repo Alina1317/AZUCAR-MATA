@@ -745,10 +745,6 @@ input:checked {
   /* align-self: flex-start; */
 }
 
-.opacity {
-  opacity: 1;
-}
-
 .wrapper-delivery__view-list {
   display: flex;
   flex-direction: column;
@@ -823,9 +819,11 @@ form {
 }
 
 .modal {
+  opacity: 0;
   min-height: 2%;
   min-width: 80%;
   margin-bottom: 3%;
+  transition: opacity .4s ease ;
 }
 
 .modal__close {
@@ -991,7 +989,7 @@ form {
 
 .none {
   display: none;
-  /* opacity: 0; */
+  opacity: 0;
   /* transition: opacity 2s ease; */
 }
 
@@ -1138,6 +1136,11 @@ ul {
   color: #fff;
   font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
 }
+
+.opacity {
+  opacity: 1;
+}
+
 
 @media(max-width: 768px) {
 
