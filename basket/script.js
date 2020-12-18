@@ -43,13 +43,18 @@ burg.onclick = () => {
 //	console.log(e.target.textContent);
 //	console.log(typeof(e.target.textContent));
 //})
+function setTotalPrice (totalPrice) {
+	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice.toFixed(2);
+}
 
 const deleteCard = (e) => {
 	const value = e.currentTarget.getAttribute("data-id");
+	totalPrice-= e.currentTarget.parentElement.getAttribute("data-price") * localStorage.getItem(value)
+	setTotalPrice(totalPrice)
 	document.getElementById(value).remove()
 	localStorage.setItem("count-total", localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value)
-}
+}	
 
 const createCard = (coffe) => {
 	console.log(coffe)
@@ -81,7 +86,7 @@ const createCard = (coffe) => {
 				</span>
 			</div>
 		</div>
-		<div class="wrapper-shop__total">
+		<div class="wrapper-shop__total" data-price=${coffe.price}>
 			<div data-id= coffe-id-${coffe.id} class="wrapper-shop__total-delete">
 				<svg class="svg-delete" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}</style></defs><g id="cross"><path class="cls-1" d="M7 7l18 18M7 25L25 7"/></g></svg> 
 			</div>
@@ -90,8 +95,8 @@ const createCard = (coffe) => {
 	`;
 
 	document.querySelector(".wrapper-container").prepend(card);
-	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice;
-	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
+	setTotalPrice(totalPrice)
+	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard.bind(coffe))
 	
 }
  // получаем айдишники кофе из локалстор
@@ -108,4 +113,4 @@ console.log(coffeeItems)
 
 fetch('../db.json')
 	.then(data => data.json())
-	.then(res => coffeeItems.forEach(item => createCard(res.product[item])));
+	.then(res => coffeeItems.forEach(item => createCard(res.product[item])))
