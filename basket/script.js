@@ -43,6 +43,38 @@ burg.onclick = () => {
 //	console.log(e.target.textContent);
 //	console.log(typeof(e.target.textContent));
 //})
+function changeQuant (e) {
+	const storageItem = e.currentTarget.parentElement.parentElement.id;
+	let countTotalValue = +localStorage.getItem("count-total");
+	let itemValue = +localStorage.getItem(storageItem);
+	const price = +e.currentTarget.parentElement.nextElementSibling.getAttribute("data-price");
+	price.toFixed(2)
+	const setValue = (storageItem, value) => {
+		localStorage.setItem(`${storageItem}`, value)
+		e.target.parentElement.children[1].innerHTML = value
+	};
+
+	if (e.target.id === "plus") {
+		itemValue+= 1
+		setValue(storageItem, itemValue)
+		totalPrice += price
+		setTotalPrice(totalPrice)
+		changeCountTotal(++countTotalValue)
+	}
+
+	if (e.target.id === "minus" && itemValue !== 0) {
+		itemValue-= 1
+		setValue(storageItem, itemValue)
+		totalPrice -= price
+		setTotalPrice(totalPrice)
+		changeCountTotal(--countTotalValue)
+	}
+}
+
+function changeCountTotal (value) {
+	localStorage.setItem("count-total", value)
+}
+
 function setTotalPrice (totalPrice) {
 	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice.toFixed(2);
 }
@@ -52,12 +84,11 @@ const deleteCard = (e) => {
 	totalPrice-= e.currentTarget.parentElement.getAttribute("data-price") * localStorage.getItem(value)
 	setTotalPrice(totalPrice)
 	document.getElementById(value).remove()
-	localStorage.setItem("count-total", localStorage.getItem("count-total") - localStorage.getItem(value))
+	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value)
 }	
 
 const createCard = (coffe) => {
-	console.log(coffe)
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
 	card.id = `coffe-id-${coffe.id}`
@@ -96,7 +127,8 @@ const createCard = (coffe) => {
 
 	document.querySelector(".wrapper-container").prepend(card);
 	setTotalPrice(totalPrice)
-	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard.bind(coffe))
+	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
+	document.querySelector(".wrapper-shop__product-count").addEventListener("click", changeQuant)
 	
 }
  // получаем айдишники кофе из локалстор
@@ -107,7 +139,6 @@ Object.keys(localStorage).forEach(item => {
 		coffeeItems.push(+item.slice(9));
 	}
 })
-console.log(coffeeItems)
 //call
 // createCard()
 
