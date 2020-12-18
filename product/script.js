@@ -44,6 +44,7 @@ const createCard = (coffe) => {
     }
 
 // превью слайдера
+if (coffe.images.length > 1) {
     coffe.images.forEach((elemet, index) => {
         const image = document.createElement('img');
         image.className = 'product-img__slider-img';
@@ -59,7 +60,7 @@ const createCard = (coffe) => {
             image.classList.add('active')
         }
     });
-
+}
     // клик по превью слайдера
     function sliderItemsOnClick(e) {
         numberOfPic = +e.target.getAttribute('data-number');

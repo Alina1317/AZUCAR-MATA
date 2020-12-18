@@ -45,10 +45,17 @@ for(let anchor of anchors) {
   })
 };
 
+const deleteCard = (e) => {
+	const value = e.currentTarget.getAttribute("data-id");
+	document.getElementById(value).remove()
+	localStorage.removeItem(value)
+}
+
 const createCard = (coffe) => {
 	console.log(coffe)
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
+	card.id = `coffe-id-${coffe.id}`
 	card.className = "wrapper-shop";
 	card.innerHTML = `
 		<div class="wrapper-shop__coffee">
@@ -75,7 +82,7 @@ const createCard = (coffe) => {
 			</div>
 		</div>
 		<div class="wrapper-shop__total">
-			<div class="wrapper-shop__total-delete">
+			<div data-id= coffe-id-${coffe.id} class="wrapper-shop__total-delete">
 				<svg class="svg-delete" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}</style></defs><g id="cross"><path class="cls-1" d="M7 7l18 18M7 25L25 7"/></g></svg> 
 			</div>
 			<p class="wrapper-shop__total-total" id="total">${coffe.price}&euro;</p>
@@ -84,6 +91,7 @@ const createCard = (coffe) => {
 
 	document.querySelector(".wrapper-container").prepend(card);
 	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice;
+	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
 	
 }
  // получаем айдишники кофе из локалстор
