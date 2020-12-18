@@ -45,22 +45,23 @@ const createCard = (coffe) => {
     }
 
 // превью слайдера
-    coffe.images.forEach((elemet, index) => {
-        const image = document.createElement('img');
-        image.className = 'product-img__slider-img';
-        image.src = `../assets/img/${folder}/${elemet}`;
-        image.alt = 'image';
-        image.setAttribute('data-number', index)
-        document.querySelector('.product-img__slider').append(image);
-        // вешаем обработчик на картинку
-        image.addEventListener('click', sliderItemsOnClick)
+    if (coffe.images.length > 1) {
+        coffe.images.forEach((elemet, index) => {
+            const image = document.createElement('img');
+            image.className = 'product-img__slider-img';
+            image.src = `../assets/img/${folder}/${elemet}`;
+            image.alt = 'image';
+            image.setAttribute('data-number', index)
+            document.querySelector('.product-img__slider').append(image);
+            // вешаем обработчик на картинку
+            image.addEventListener('click', sliderItemsOnClick)
 
-        // первая картинка подсвечивается
-        if (index === 0) {
-            image.classList.add('active')
-        }
-    });
-
+            // первая картинка подсвечивается
+            if (index === 0) {
+                image.classList.add('active')
+            }
+        });
+    }
     // клик по превью слайдера
     function sliderItemsOnClick(e) {
         numberOfPic = +e.target.getAttribute('data-number');
@@ -89,6 +90,18 @@ const createCard = (coffe) => {
         btnGoToCart = document.querySelector('.none');
 
         btnAddToCart.addEventListener('click', (e) => {
+            // добавление в локалстор
+            const setLocalStor = () => {
+                localStorage.setItem(`coffe-id-${coffe.id}`, 1)
+                // добавление общего счетчика или его изменение
+                !localStorage.getItem("count-total") ?
+                    localStorage.setItem("count-total", 1) :
+                    localStorage.setItem("count-total", +localStorage.getItem("count-total") + 1)
+                
+            }
+        // проверка есть ли товар уже в корзине
+        localStorage.getItem(`coffe-id-${coffe.id}`) === null ? setLocalStor() : alert("already in the cart")
+
         btnGoToCart.className = 'product-basket__btn';
         btnGoToCart.classList.add('go');
     });
