@@ -1,0 +1,55 @@
+{
+	"product":[
+		{
+			"name": "Coffee set",
+			"price": 15.99,
+			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg"],
+			"id": 0,
+			"info_title": "Curated coffee set by Azucar Mata team.",
+			"description": [
+				"Including 4*55g coffee beans from Barcelona's roasters",
+				"Light roast only",
+				"Limited edition"
+			]
+		},
+		{
+			"name": "Private coffee cupping",
+			"price": 89,
+			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg"],
+			"id": 1,
+			"info_title": "Private coffee cupping.",
+			"description": [
+				"Private coffee cupping",
+				"Maximum 5 persons",
+				"Contact us to know about the upcoming dates"
+			]
+		},
+		{
+			"name": "test_name",
+			"price": 25.99,
+			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"],
+			"id": 2,
+			"info_title": "Curated coffee set by Azucar Mata team.",
+			"description": [
+				"Including 4*55g coffee beans from Barcelona's roasters",
+				"Light roast only",
+				"Limited edition"
+			]
+		},
+		{
+			"name": "second test name",
+			"price": 25.99,
+			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"],
+			"id": 3,
+			"info_title": "Curated coffee set by Azucar Mata team.",
+			"description": [
+				"Including 4*55g coffee beans from Barcelona's roasters",
+				"Light roast only",
+				"Limited edition"
+			]
+		}
+	],
+	"request": [
+
+	]
+}
