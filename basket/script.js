@@ -28,26 +28,26 @@ burg.onclick = () => {
 	header.classList.toggle('toggle');
 };
 
-// Найти все ссылки начинающиеся на #
-const anchors = document.querySelectorAll('a[href^="#"]')
 
-// Цикл по всем ссылкам
-for(let anchor of anchors) {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault() // Предотвратить стандартное поведение ссылок
-    // Атрибут href у ссылки, если его нет то перейти к body (наверх не плавно)
-    const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body'
-    // Плавная прокрутка до элемента с id = href у ссылки
-    document.querySelector(goto).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    })
-  })
-};
+
+//расчет стоимости товара
+//const sumTotal = e => {
+//	let sumPrice;
+//	sumPrice = count * +subtotal;
+//	subtotal.textContent = sumPrice;
+//	total.textContent = sumPrice;
+//};
+
+//subtotal.addEventListener('mouseover', e => {
+//	console.log(e);
+//	console.log(e.target.textContent);
+//	console.log(typeof(e.target.textContent));
+//})
 
 const deleteCard = (e) => {
 	const value = e.currentTarget.getAttribute("data-id");
 	document.getElementById(value).remove()
+	localStorage.setItem("count-total", localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value)
 }
 

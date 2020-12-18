@@ -23,6 +23,7 @@ const createCard = (coffe) => {
                 <div class="product-info__wrap">
                     <p class="product-info__list-set">${coffe.info_title}</p>
                     <ul class="product-info__list"></ul>
+                    <p class="product-info__list-ps"> P.S. Please let us know if you need to grind coffee for you.</p>
                 </div>
             </div>
         </div>
@@ -44,7 +45,6 @@ const createCard = (coffe) => {
     }
 
 // превью слайдера
-if (coffe.images.length > 1) {
     coffe.images.forEach((elemet, index) => {
         const image = document.createElement('img');
         image.className = 'product-img__slider-img';
@@ -60,7 +60,7 @@ if (coffe.images.length > 1) {
             image.classList.add('active')
         }
     });
-}
+
     // клик по превью слайдера
     function sliderItemsOnClick(e) {
         numberOfPic = +e.target.getAttribute('data-number');

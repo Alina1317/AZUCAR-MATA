@@ -1,4 +1,7 @@
+let countTotal;
+
 // создание карточки
+
 const createCard = (coffe) => {
 	const card = document.createElement("div");
 	card.className = "coffe__card";
@@ -26,8 +29,9 @@ const createCard = (coffe) => {
 	const btnBuy = document.querySelector(`#buy_${coffe.id}`),
  		btnBasket = document.querySelector(`#basket_${coffe.id}`),
 		total = document.querySelector(`#total_${coffe.id}`);
-	let count = 0 || localStorage.getItem(`coffe-id-${coffe.id}`);
-	let countTotal = 0 || +localStorage.getItem(`count-total`);
+	let count = 0 || +localStorage.getItem(`coffe-id-${coffe.id}`);
+	countTotal = 0 || +localStorage.getItem(`count-total`);
+	console.log(0 || +localStorage.getItem(`count-total`))
 	total.className = 'num';
 	total.textContent = +count > 0 ? +count : "";
 	total.style.display = +count > 0 ? "flex" : "none";
@@ -36,15 +40,19 @@ const createCard = (coffe) => {
 	btnBuy.addEventListener('click', (e) => {
 	//console.log(e.target);
 	if(e.target) {
+		console.log('done')
+		console.log(countTotal)
 		count++;
-		countTotal++;
+		countTotal+=1;
 		localStorage.setItem(`coffe-id-${coffe.id}`, `${count}`)
 		localStorage.setItem(`count-total`, `${countTotal}`)
 		document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal)
 		btnBasket.classList.add('top');
 		total.style.display = "flex";
 		total.textContent = +count;
-	} 
+		
+	}
+	
 });
 
 };
