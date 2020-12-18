@@ -8,15 +8,14 @@ let	num = document.getElementById('num'),
 	total = document.getElementById('total'),
 	count = 1;
 
-const sortCheckbox = document.querySelectorAll('.sort'),
-	continueBtn = document.getElementById('continue'),
+	let totalPrice = null;
+
+const continueBtn = document.getElementById('continue'),
 	deliveryBlock = document.getElementById('delivery'),
-	deliveryBtn = document.querySelectorAll('.transfer'),
-	noneBlock = document.querySelectorAll('.none'),
 	pickupBtn = document.getElementById('pickup-btn'),
 	pickupAddress = document.getElementById('pickup-address'),
 	spainBtn = document.getElementById('spain-btn'),
-	modalBlock = document.querySelectorAll('.modal'),
+	modalBlock = document.getElementById('modal'),
 	europeBtn = document.getElementById('europe-btn'),
 	modalForm = document.getElementById('modal-form'),
 	proceedBtn = document.querySelectorAll('.proceed'),
@@ -46,61 +45,59 @@ for(let anchor of anchors) {
   })
 };
 
-//счетчик на кнопках - / +
-plus.addEventListener('click', e => {
-	if (e.target) {
-		count++;
-		num.textContent = count;
-	}
-});
+const createCard = (coffe) => {
+	console.log(coffe)
+	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
+	const card = document.createElement("div");
+	card.className = "wrapper-shop";
+	card.innerHTML = `
+		<div class="wrapper-shop__coffee">
+			<img class="wrapper-shop__coffee-img" src="../assets/img/${coffe.name.replace(/ /g,"_")}/${coffe.images[0]}" alt="coffee">
+		</div>
+		<div class="wrapper-shop__product">
+			<p class="wrapper-shop__product-text">${coffe.name}</p>
+			<div class="wrapper-shop__product-count"> 
+				<button class="wrapper-shop__product-minus" id="minus">-</button>
+				<span class="wrapper-shop__product-quantity" id="num">
+					${localStorage.getItem(`coffe-id-${coffe.id}`)}
+				</span>
+				<button class="wrapper-shop__product-plus" id="plus">+</button>
+			</div>
+			<div class="wrapper-shop__sort">
+				<span class="wrapper-shop__sort-list">
+					<input class="wrapper-shop__sort-ground sort" id="ground" type="checkbox">
+					<label for="ground">Ground</label> 
+				</span>
+				<span class="wrapper-shop__sort-li">
+					<input class="wrapper-shop__sort-beans sort" id="beans" type="checkbox">
+					<label for="beans">Beans</label>
+				</span>
+			</div>
+		</div>
+		<div class="wrapper-shop__total">
+			<div class="wrapper-shop__total-delete">
+				<svg class="svg-delete" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}</style></defs><g id="cross"><path class="cls-1" d="M7 7l18 18M7 25L25 7"/></g></svg> 
+			</div>
+			<p class="wrapper-shop__total-total" id="total">${coffe.price}&euro;</p>
+		</div>
+	`;
 
-minus.addEventListener('click', e => {
-	if (e.target) {
-		if(count === 0) {
-			num.textContent = count;
-		} else {
-			count--;
-			num.textContent = count;
-		}
-	}
-});
-
-
-//нажатие на кнопку и появление блока доставка
-continueBtn.onclick = e => {
-		deliveryBlock.className = 'wrapper-delivery';
-		setTimeout(() => deliveryBlock.style.opacity = 1, 100)
+	document.querySelector(".wrapper-container").prepend(card);
+	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice;
+	
 }
+ // получаем айдишники кофе из локалстор
+const coffeeItems = [];
+Object.keys(localStorage).forEach(item => {
+	
+	if (item.includes("coffe-id-")) {
+		coffeeItems.push(+item.slice(9));
+	}
+})
+console.log(coffeeItems)
+//call
+// createCard()
 
-deliveryBtnOnClick = (e) => {
-	let modal = e.currentTarget.nextElementSibling;
-	modalBlock.forEach(modal => {
-		modal.classList.add('none')
-		modal.classList.remove('opacity')
-	})
-	modal.classList.remove('none')
-	setTimeout(() => modal.classList.add('opacity'), 100)
-}
-deliveryBtn.forEach(button => button.addEventListener("click", deliveryBtnOnClick))
-
-//нажатие на кнопку pickup и появление адреса
-// pickupBtn.addEventListener('click', e => {
-// 	pickupAddress.classList.toggle('none');
-// });
-
-//нажатие на кнопку spain и появление формы
-// spainBtn.addEventListener('click', e => {
-// 	modalBlock.classList.toggle('none');
-// });
-
-//нажатие на кнопку europe и появление формы
-// europeBtn.addEventListener('click', e => {
-// 	modalForm.classList.toggle('none');
-// });
-
-//нажатие на кнопку Proceed to payment и появление блока Payment
-proceedBtn.forEach(item => {
-	item.addEventListener('click', e => {
-		paymentBlock.classList.toggle('none');
-	})
-});
+fetch('../db.json')
+	.then(data => data.json())
+	.then(res => coffeeItems.forEach(item => createCard(res.product[item])));
