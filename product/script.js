@@ -17,7 +17,7 @@ const createCard = (coffe) => {
             <h1 class="product-text__title">${coffe.name}</h1>
             <p class="product-text__price">${coffe.price}&euro;</p>
             <button class="product-text__btn">Add to cart</button>
-            <button class="none">Go to cart</button>
+            <a href="../basket/index.html"><button class="none">Go to cart</button></a>
             <div class="product-info">
                 <p class="product-info__text">Product information</p>
                 <div class="product-info__wrap">

@@ -12,10 +12,11 @@ let	num = document.getElementById('num'),
 
 const continueBtn = document.getElementById('continue'),
 	deliveryBlock = document.getElementById('delivery'),
+	deliveryBtn = document.querySelectorAll('.transfer'),
 	pickupBtn = document.getElementById('pickup-btn'),
 	pickupAddress = document.getElementById('pickup-address'),
 	spainBtn = document.getElementById('spain-btn'),
-	modalBlock = document.getElementById('modal'),
+	modalBlock = document.querySelectorAll('.modal'),
 	europeBtn = document.getElementById('europe-btn'),
 	modalForm = document.getElementById('modal-form'),
 	proceedBtn = document.querySelectorAll('.proceed'),
@@ -28,21 +29,6 @@ burg.onclick = () => {
 	header.classList.toggle('toggle');
 };
 
-
-
-//расчет стоимости товара
-//const sumTotal = e => {
-//	let sumPrice;
-//	sumPrice = count * +subtotal;
-//	subtotal.textContent = sumPrice;
-//	total.textContent = sumPrice;
-//};
-
-//subtotal.addEventListener('mouseover', e => {
-//	console.log(e);
-//	console.log(e.target.textContent);
-//	console.log(typeof(e.target.textContent));
-//})
 function changeQuant (e) {
 	const storageItem = e.currentTarget.parentElement.parentElement.id;
 	let countTotalValue = +localStorage.getItem("count-total");
@@ -95,7 +81,9 @@ const createCard = (coffe) => {
 	card.className = "wrapper-shop";
 	card.innerHTML = `
 		<div class="wrapper-shop__coffee">
-			<img class="wrapper-shop__coffee-img" src="../assets/img/${coffe.name.replace(/ /g,"_")}/${coffe.images[0]}" alt="coffee">
+			<a href="../product/?id=${coffe.id}">
+				<img class="wrapper-shop__coffee-img" src="../assets/img/${coffe.name.replace(/ /g,"_")}/${coffe.images[0]}" alt="coffee">
+			</a>
 		</div>
 		<div class="wrapper-shop__product">
 			<p class="wrapper-shop__product-text">${coffe.name}</p>
@@ -131,6 +119,31 @@ const createCard = (coffe) => {
 	document.querySelector(".wrapper-shop__product-count").addEventListener("click", changeQuant)
 	
 }
+
+//нажатие на кнопку и появление блока доставка
+continueBtn.onclick = e => {
+	deliveryBlock.className = 'wrapper-delivery';
+	setTimeout(() => deliveryBlock.style.opacity = 1, 200)
+}
+
+deliveryBtnOnClick = (e) => {
+let modal = e.currentTarget.nextElementSibling;
+modalBlock.forEach(modal => {
+	modal.classList.add('none')
+	modal.classList.remove('opacity')
+})
+modal.classList.remove('none')
+setTimeout(() => modal.classList.add('opacity'), 00)
+}
+deliveryBtn.forEach(button => button.addEventListener("click", deliveryBtnOnClick))
+
+//нажатие на кнопку Proceed to payment и появление блока Payment
+proceedBtn.forEach(item => {
+	item.addEventListener('click', e => {
+		paymentBlock.classList.toggle('none');
+	})
+});
+
  // получаем айдишники кофе из локалстор
 const coffeeItems = [];
 Object.keys(localStorage).forEach(item => {

@@ -706,6 +706,7 @@ input:checked {
   display: flex;
   flex-direction: column;
   min-width: 100%;
+  transition: opacity 2s ease;
 }
 
 .wrapper-pay {
@@ -793,9 +794,11 @@ form {
 }
 
 .modal {
-  min-height: 28%;
+  opacity: 0;
+  min-height: 2%;
   min-width: 80%;
   margin-bottom: 3%;
+  transition: opacity .4s ease ;
 }
 
 .modal__close {
@@ -940,6 +943,11 @@ form {
 
 .none {
   display: none;
+  opacity: 0;
+}
+
+.opacity {
+  opacity: 1;
 }
 
 .go {
