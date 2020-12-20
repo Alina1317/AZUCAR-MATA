@@ -94,6 +94,8 @@ const deleteCard = (e) => {
 	wrapperContinueBtn.classList.add('none');
 	wrapperBasket.classList.remove('none');
 	wrapperBasket.classList.add('opacity');
+	//удаление блока доставки про пустой корзине
+	localStorage.getItem("count-total") == 0 ? deliveryBlock.remove() : ""
 }	
 
 const createCard = (coffe) => {
