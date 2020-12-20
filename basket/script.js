@@ -83,7 +83,7 @@ const deleteCard = (e) => {
 	const value = e.currentTarget.getAttribute("data-id");
 	totalPrice-= e.currentTarget.parentElement.getAttribute("data-price") * localStorage.getItem(value)
 	// totalPrice-= storage[0].price * localStorage.getItem(value)
-	setTotalPrice(totalPrice)
+	setTotalPrice(totalPrice, value, e.currentTarget.parentElement.getAttribute("data-price"))
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value)
