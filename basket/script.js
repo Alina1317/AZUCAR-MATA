@@ -7,7 +7,7 @@ let	num = document.getElementById('num'),
 	subtotal = document.getElementById('subtotal'),
 	total = document.getElementById('total'),
 	count = 1;
-
+let storage = [];
 	let totalPrice = null;
 
 const continueBtn = document.getElementById('continue'),
@@ -21,7 +21,6 @@ const continueBtn = document.getElementById('continue'),
 	modalForm = document.getElementById('modal-form'),
 	proceedBtn = document.querySelectorAll('.proceed'),
 	paymentBlock = document.getElementById('payment');
-
 //бургер-меню
 burg.onclick = () => {
 	burg.classList.toggle('toggle');
@@ -29,8 +28,15 @@ burg.onclick = () => {
 	header.classList.toggle('toggle');
 };
 
+function error () {
+	alert("error")
+	localStorage.clear()
+	window.location.reload()
+}
+
 function changeQuant (e) {
 	const storageItem = e.currentTarget.parentElement.parentElement.id;
+	let elementPrice = e.currentTarget.parentElement.nextElementSibling.getAttribute("data-price");
 	let countTotalValue = +localStorage.getItem("count-total");
 	let itemValue = +localStorage.getItem(storageItem);
 	const price = +e.currentTarget.parentElement.nextElementSibling.getAttribute("data-price");
@@ -44,7 +50,7 @@ function changeQuant (e) {
 		itemValue+= 1
 		setValue(storageItem, itemValue)
 		totalPrice += price
-		setTotalPrice(totalPrice)
+		setTotalPrice(totalPrice, storageItem, elementPrice)
 		changeCountTotal(++countTotalValue)
 	}
 
@@ -52,7 +58,7 @@ function changeQuant (e) {
 		itemValue-= 1
 		setValue(storageItem, itemValue)
 		totalPrice -= price
-		setTotalPrice(totalPrice)
+		setTotalPrice(totalPrice, storageItem, elementPrice)
 		changeCountTotal(--countTotalValue)
 	}
 }
@@ -61,13 +67,22 @@ function changeCountTotal (value) {
 	localStorage.setItem("count-total", value)
 }
 
-function setTotalPrice (totalPrice) {
-	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice.toFixed(2);
+function setTotalPrice (totalPrice, elementId, elementPrice) {
+	// проверка изменения цены через devtools
+	if (elementId && elementPrice) {
+		let itemInStorage = storage.filter(item => item.id == elementId);
+		itemInStorage.length > 1 ?
+			error() :
+			itemInStorage[0].price !== +elementPrice ?
+				window.location.reload() : "";
+	}
+	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice.toFixed(2)
 }
 
 const deleteCard = (e) => {
 	const value = e.currentTarget.getAttribute("data-id");
 	totalPrice-= e.currentTarget.parentElement.getAttribute("data-price") * localStorage.getItem(value)
+	// totalPrice-= storage[0].price * localStorage.getItem(value)
 	setTotalPrice(totalPrice)
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
@@ -75,6 +90,14 @@ const deleteCard = (e) => {
 }	
 
 const createCard = (coffe) => {
+	let obj = {
+		id: `coffe-id-${coffe.id}`,
+		name: coffe.name,
+		count: localStorage.getItem(`coffe-id-${coffe.id}`),
+		price: coffe.price,
+	}
+	storage.push(obj)
+
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
 	card.id = `coffe-id-${coffe.id}`
@@ -153,7 +176,6 @@ Object.keys(localStorage).forEach(item => {
 	}
 })
 //call
-// createCard()
 
 fetch('../db.json')
 	.then(data => data.json())
