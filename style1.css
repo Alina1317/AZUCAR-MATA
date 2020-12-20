@@ -63,7 +63,7 @@ a {
   position: relative;
 }
 
-.header-menu__link_basket::after {
+.header-menu__link_basket[data-count]::after {
   content: attr(data-count);
   position: absolute;
   display: flex;
