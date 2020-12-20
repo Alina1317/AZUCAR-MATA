@@ -10,7 +10,10 @@ let	num = document.getElementById('num'),
 let storage = [];
 	let totalPrice = null;
 
-const continueBtn = document.getElementById('continue'),
+const wrapperBasket = document.querySelector('.wrapper-basket'),
+	wrapperPriceTotal = document.querySelector('.wrapper-price__total'),
+	wrapperContinueBtn = document.querySelector('.wrapper-continue'),
+	continueBtn = document.getElementById('continue'),
 	deliveryBlock = document.getElementById('delivery'),
 	deliveryBtn = document.querySelectorAll('.transfer'),
 	pickupBtn = document.getElementById('pickup-btn'),
@@ -86,7 +89,11 @@ const deleteCard = (e) => {
 	setTotalPrice(totalPrice, value, e.currentTarget.parentElement.getAttribute("data-price"))
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
-	localStorage.removeItem(value)
+	localStorage.removeItem(value);
+	wrapperPriceTotal.classList.add('none');
+	wrapperContinueBtn.classList.add('none');
+	wrapperBasket.classList.remove('none');
+	wrapperBasket.classList.add('opacity');
 }	
 
 const createCard = (coffe) => {
@@ -156,7 +163,7 @@ modalBlock.forEach(modal => {
 	modal.classList.remove('opacity')
 })
 modal.classList.remove('none')
-setTimeout(() => modal.classList.add('opacity'), 00)
+setTimeout(() => modal.classList.add('opacity'), 100)
 }
 deliveryBtn.forEach(button => button.addEventListener("click", deliveryBtnOnClick))
 
