@@ -94,10 +94,11 @@ const deleteCard = (e) => {
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
-	wrapperPriceTotal.classList.add('none');
-	wrapperContinueBtn.classList.add('none');
-	wrapperBasket.classList.remove('none');
-	wrapperBasket.classList.add('opacity');
+	// wrapperPriceTotal.classList.add('none');
+	// wrapperContinueBtn.classList.add('none');
+	// wrapperBasket.classList.remove('none');
+	// wrapperBasket.classList.add('opacity');
+	
 	//удаление блока доставки про пустой корзине
 	localStorage.getItem("count-total") == 0 ? deliveryBlock.remove() : ""
 }	
