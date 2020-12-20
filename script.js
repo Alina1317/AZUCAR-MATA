@@ -31,7 +31,6 @@ const createCard = (coffe) => {
 		total = document.querySelector(`#total_${coffe.id}`);
 	let count = 0 || +localStorage.getItem(`coffe-id-${coffe.id}`);
 	countTotal = 0 || +localStorage.getItem(`count-total`);
-	console.log(0 || +localStorage.getItem(`count-total`))
 	total.className = 'num';
 	total.textContent = +count > 0 ? +count : "";
 	total.style.display = +count > 0 ? "flex" : "none";

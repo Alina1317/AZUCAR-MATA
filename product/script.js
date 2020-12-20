@@ -94,9 +94,16 @@ const createCard = (coffe) => {
             const setLocalStor = () => {
                 localStorage.setItem(`coffe-id-${coffe.id}`, 1)
                 // добавление общего счетчика или его изменение
-                !localStorage.getItem("count-total") ?
-                    localStorage.setItem("count-total", 1) :
+                if (localStorage.getItem("count-total")) {
                     localStorage.setItem("count-total", +localStorage.getItem("count-total") + 1)
+                    document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal + 1)
+                } else {
+                    localStorage.setItem("count-total", 1)
+                    document.querySelector(".header-menu__link_basket").setAttribute("data-count", 1)
+                }
+                // !localStorage.getItem("count-total") ?
+                //     localStorage.setItem("count-total", 1) :
+                //     localStorage.setItem("count-total", +localStorage.getItem("count-total") + 1)
                 
             }
         // проверка есть ли товар уже в корзине
@@ -117,6 +124,9 @@ if (urlSearch.has("id")) {
         .then(data => data.json())
         .then(res => createCard(res.product[cofeeId]));  
 }
+// счетчик в корзину
+let countTotal = 0 || +localStorage.getItem(`count-total`);
+countTotal > 0 ? document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal) : "";
 
 // Найти все ссылки начинающиеся на #
 const anchors = document.querySelectorAll('a[href^="#"]')

@@ -9,6 +9,9 @@ let	num = document.getElementById('num'),
 	count = 1;
 let storage = [];
 	let totalPrice = null;
+// счетчик в корзинку
+let countTotal = 0 || +localStorage.getItem(`count-total`);
+countTotal > 0 ? document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal) : "";
 
 const wrapperBasket = document.querySelector('.wrapper-basket'),
 	wrapperPriceTotal = document.querySelector('.wrapper-price__total'),
@@ -68,6 +71,7 @@ function changeQuant (e) {
 
 function changeCountTotal (value) {
 	localStorage.setItem("count-total", value)
+	document.querySelector(".header-menu__link_basket").setAttribute("data-count", value)
 }
 
 function setTotalPrice (totalPrice, elementId, elementPrice) {
