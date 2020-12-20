@@ -100,7 +100,9 @@ const createCard = (coffe) => {
                 
             }
         // проверка есть ли товар уже в корзине
-        localStorage.getItem(`coffe-id-${coffe.id}`) === null ? setLocalStor() : alert("already in the cart")
+            localStorage.getItem(`coffe-id-${coffe.id}`) > 0 ?
+                alert("already in the cart") :
+                setLocalStor()
 
         btnGoToCart.className = 'product-basket__btn';
         btnGoToCart.classList.add('go');
