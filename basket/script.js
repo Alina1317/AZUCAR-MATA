@@ -103,6 +103,8 @@ const deleteCard = (e) => {
 }	
 
 const createCard = (coffe) => {
+	let ground = coffe.ground ? "inline" : "none";
+	let beans = coffe.beans ? "inline" : "none";
 	let obj = {
 		id: `coffe-id-${coffe.id}`,
 		name: coffe.name,
@@ -131,11 +133,11 @@ const createCard = (coffe) => {
 				<button class="wrapper-shop__product-plus" id="plus">+</button>
 			</div>
 			<div class="wrapper-shop__sort">
-				<span class="wrapper-shop__sort-list">
+				<span style= "display: ${ground}" class="wrapper-shop__sort-list">
 					<input class="wrapper-shop__sort-ground sort" id="ground" type="checkbox">
 					<label for="ground">Ground</label> 
 				</span>
-				<span class="wrapper-shop__sort-li">
+				<span style= "display: ${beans}" class="wrapper-shop__sort-li">
 					<input class="wrapper-shop__sort-beans sort" id="beans" type="checkbox">
 					<label for="beans">Beans</label>
 				</span>

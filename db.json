@@ -6,6 +6,8 @@
 			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg"],
 			"id": 0,
 			"info_title": "Curated coffee set by Azucar Mata team.",
+			"ground": true,
+			"beans": true,
 			"description": [
 				"Including 4*55g coffee beans from Barcelona's roasters",
 				"Light roast only",
@@ -18,6 +20,8 @@
 			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg"],
 			"id": 1,
 			"info_title": "Private coffee cupping.",
+			"ground": false,
+			"beans": false,
 			"description": [
 				"Private coffee cupping",
 				"Maximum 5 persons",
@@ -30,6 +34,8 @@
 			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"],
 			"id": 2,
 			"info_title": "Curated coffee set by Azucar Mata team.",
+			"ground": true,
+			"beans": false,
 			"description": [
 				"Including 4*55g coffee beans from Barcelona's roasters",
 				"Light roast only",
@@ -42,6 +48,8 @@
 			"images": ["main.jpg","01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"],
 			"id": 3,
 			"info_title": "Curated coffee set by Azucar Mata team.",
+			"ground": false,
+			"beans": true,
 			"description": [
 				"Including 4*55g coffee beans from Barcelona's roasters",
 				"Light roast only",
