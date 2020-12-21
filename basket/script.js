@@ -70,8 +70,14 @@ function changeQuant (e) {
 }
 
 function changeCountTotal (value) {
-	localStorage.setItem("count-total", value)
-	document.querySelector(".header-menu__link_basket").setAttribute("data-count", value)
+	localStorage.setItem('count-total', value)
+	document.querySelector('.header-menu__link_basket').setAttribute('data-count', value);
+	if (value == 0) {
+		wrapperPriceTotal.classList.add('none');
+		wrapperContinueBtn.classList.add('none');
+		wrapperBasket.classList.remove('none');
+		wrapperBasket.classList.add('opacity');
+	}
 }
 
 function setTotalPrice (totalPrice, elementId, elementPrice) {
@@ -94,11 +100,7 @@ const deleteCard = (e) => {
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
-	// wrapperPriceTotal.classList.add('none');
-	// wrapperContinueBtn.classList.add('none');
-	// wrapperBasket.classList.remove('none');
-	// wrapperBasket.classList.add('opacity');
-	
+
 	//удаление блока доставки про пустой корзине
 	localStorage.getItem("count-total") == 0 ? deliveryBlock.remove() : ""
 }	

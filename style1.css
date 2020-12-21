@@ -712,6 +712,11 @@ input:checked {
 .wrapper-pay {
   display: flex;
   flex-direction: column;
+  min-width: 100%;
+}
+
+.wrapper-pay__view {
+  max-width: 20%;
 }
 
 .wrapper-delivery__title,
@@ -1532,7 +1537,7 @@ ul {
   }
 
   .product-img__img {
-    height: 90vw;
+    height: 9vw;
   }
 
   /* .product-img__img, */
