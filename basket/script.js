@@ -11,7 +11,9 @@ let storage = [];
 	let totalPrice = null;
 // счетчик в корзинку
 let countTotal = 0 || +localStorage.getItem(`count-total`);
-countTotal > 0 ? document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal) : "";
+countTotal > 0 ?
+	document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal) :
+	emptyBasket();
 
 const wrapperBasket = document.querySelector('.wrapper-basket'),
 	wrapperPriceTotal = document.querySelector('.wrapper-price__total'),
@@ -33,6 +35,12 @@ burg.onclick = () => {
 	burgMenu.classList.toggle('toggle');
 	header.classList.toggle('toggle');
 };
+
+function emptyBasket (type) {
+	document.querySelector(".wrapper-container").classList.toggle("none")
+	document.querySelector(".wrapper-basket").classList.toggle("none")
+	type === "detete" ? deliveryBlock.remove() : ""
+}
 
 function error () {
 	alert("error")
@@ -100,7 +108,7 @@ const deleteCard = (e) => {
 	// wrapperBasket.classList.add('opacity');
 	
 	//удаление блока доставки про пустой корзине
-	localStorage.getItem("count-total") == 0 ? deliveryBlock.remove() : ""
+	localStorage.getItem("count-total") == 0 ? emptyBasket("delete") : ""
 }	
 
 const createCard = (coffe) => {
@@ -186,7 +194,6 @@ proceedBtn.forEach(item => {
  // получаем айдишники кофе из локалстор
 const coffeeItems = [];
 Object.keys(localStorage).forEach(item => {
-	
 	if (item.includes("coffe-id-")) {
 		coffeeItems.push(+item.slice(9));
 	}
