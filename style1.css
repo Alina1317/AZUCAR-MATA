@@ -452,6 +452,10 @@ a {
   display: none;
 }
 
+.wrapper-price__total-price::after {
+  content: '€';
+}
+
 .num {
   font-weight: bold;
   color: #000;

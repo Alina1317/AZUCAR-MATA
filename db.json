@@ -57,6 +57,10 @@
 			]
 		}
 	],
+	"delivery_price": {
+		"spain": 4.99,
+		"europe": 14.99
+	},
 	"request": [
 
 	]

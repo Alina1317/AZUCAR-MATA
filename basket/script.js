@@ -1,14 +1,15 @@
-const burg = document.querySelector('.header-burger'),
-	burgMenu = document.querySelector('.header-menu'),
-	header = document.querySelector('.header');
-const minus = document.getElementById('minus'),
-	plus = document.getElementById('plus');
-let	num = document.getElementById('num'),
-	subtotal = document.getElementById('subtotal'),
-	total = document.getElementById('total'),
-	count = 1;
+const burg = document.querySelector('.header-burger');
+const burgMenu = document.querySelector('.header-menu');
+const header = document.querySelector('.header');
+const minus = document.getElementById('minus');
+const plus = document.getElementById('plus');
+let	num = document.getElementById('num');
+const subtotal = document.getElementById('subtotal');
+const total = document.getElementById('total');
+let count = 1;
 let storage = [];
-	let totalPrice = null;
+let totalPrice = null;
+// let deliveryPrice = {};
 // счетчик в корзинку
 let countTotal = 0 || +localStorage.getItem(`count-total`);
 countTotal > 0 ?
@@ -40,6 +41,44 @@ function emptyBasket (type) {
 	document.querySelector(".wrapper-container").classList.toggle("none")
 	document.querySelector(".wrapper-basket").classList.toggle("none")
 	type === "detete" ? deliveryBlock.remove() : ""
+}
+
+function innerDeliveryPrice (json_price) {
+	const spain = document.querySelector("#delivery-price_spain");
+	const europe = document.querySelector("#delivery-price_europe");
+	const free =  document.querySelector("#delivery-price_free");
+	spain.textContent = json_price.spain + "€"
+	europe.textContent = json_price.europe + "€"
+
+	function clickOnDelivery (price) {
+		finalTotalPrice = totalPrice + price
+		setTotalPrice(finalTotalPrice)
+		document.querySelector(".wrapper-shop__total-delete").removeEventListener("click", deleteCard)
+		document.querySelector(".wrapper-shop__product-count").removeEventListener("click", changeQuant)
+		const CloseModal = () => {
+			document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
+			document.querySelector(".wrapper-shop__product-count").addEventListener("click", changeQuant)
+			deliveryBlock.classList.remove('wrapper-delivery');
+			deliveryBlock.classList.add("none")
+			setTotalPrice(totalPrice)
+			modalBlock.forEach(el => {el.classList.remove("opacity"); el.classList.add("none")})
+			// window.location.reload()
+		}
+		document.querySelectorAll(".modal__close").forEach(el => el.addEventListener("click", CloseModal))
+	}
+
+	spain.parentElement.onclick = (e) => {
+		clickOnDelivery(json_price.spain)
+		setTotalPrice(finalTotalPrice)
+	}
+	europe.parentElement.onclick = (e) => {
+		clickOnDelivery(json_price.europe)
+		setTotalPrice(finalTotalPrice)
+	}
+	free.parentElement.onclick = (e) =>{
+		clickOnDelivery(0)
+		setTotalPrice(totalPrice)
+	}
 }
 
 function error () {
@@ -102,6 +141,7 @@ const deleteCard = (e) => {
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
+	console.log(totalPrice)
 	// wrapperPriceTotal.classList.add('none');
 	// wrapperContinueBtn.classList.add('none');
 	// wrapperBasket.classList.remove('none');
@@ -202,4 +242,7 @@ Object.keys(localStorage).forEach(item => {
 
 fetch('../db.json')
 	.then(data => data.json())
-	.then(res => coffeeItems.forEach(item => createCard(res.product[item])))
+	.then(res => {
+		coffeeItems.forEach(item => createCard(res.product[item]));
+		innerDeliveryPrice(res.delivery_price);
+	})
