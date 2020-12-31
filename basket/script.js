@@ -145,10 +145,14 @@ const deleteCard = (e) => {
 }	
 
 const createCard = (coffe) => {
+	// если только ground или только beans - true
+	const isChecked = !(coffe.ground && coffe.beans) && (coffe.ground || coffe.beans);
+	console.log(isChecked)
 	const innerCheckbox = (type) => {
+		
 		return (
 			`<span class="wrapper-shop__sort-list">
-					<input class="wrapper-shop__sort-ground sort" id=${type + "_" + coffe.id} type="checkbox">
+					<input class="wrapper-shop__sort-ground sort" id=${type + "_" + coffe.id} ${isChecked ? "disabled checked='checked'":""} type="checkbox">
 					<label for=${type + "_" + coffe.id}>${type === "ground" ? "Ground" : "Beans"}</label> 
 			</span>`
 		)
@@ -161,7 +165,6 @@ const createCard = (coffe) => {
 		price: coffe.price,
 	}
 	storage[storageItemId] = storageItem;
-	console.log(storage)
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
 	card.id = `coffe-id-${coffe.id}`

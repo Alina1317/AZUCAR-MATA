@@ -863,7 +863,7 @@ form {
 
 .product-img {
   display: flex;
-  FONT-WEIGHT: ;
+  /* FONT-WEIGHT: ; */
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.2%;
