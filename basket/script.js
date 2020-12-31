@@ -7,7 +7,7 @@ let	num = document.getElementById('num');
 const subtotal = document.getElementById('subtotal');
 const total = document.getElementById('total');
 let count = 1;
-let storage = [];
+let storage = {};
 let totalPrice = null;
 // let deliveryPrice = {};
 // счетчик в корзинку
@@ -53,11 +53,11 @@ function innerDeliveryPrice (json_price) {
 	function clickOnDelivery (price) {
 		finalTotalPrice = totalPrice + price
 		setTotalPrice(finalTotalPrice)
-		document.querySelector(".wrapper-shop__total-delete").removeEventListener("click", deleteCard)
-		document.querySelector(".wrapper-shop__product-count").removeEventListener("click", changeQuant)
+		document.querySelectorAll(".wrapper-shop__total-delete").forEach(el => el.removeEventListener("click", deleteCard))
+		document.querySelectorAll(".wrapper-shop__product-count").forEach(el => el.removeEventListener("click", changeQuant))
 		const CloseModal = () => {
-			document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
-			document.querySelector(".wrapper-shop__product-count").addEventListener("click", changeQuant)
+			document.querySelectorAll(".wrapper-shop__total-delete").forEach(el => el.addEventListener("click", deleteCard))
+			document.querySelectorAll(".wrapper-shop__product-count").forEach(el => el.addEventListener("click", changeQuant))
 			deliveryBlock.classList.remove('wrapper-delivery');
 			deliveryBlock.classList.add("none")
 			setTotalPrice(totalPrice)
@@ -124,11 +124,8 @@ function changeCountTotal (value) {
 function setTotalPrice (totalPrice, elementId, elementPrice) {
 	// проверка изменения цены через devtools
 	if (elementId && elementPrice) {
-		let itemInStorage = storage.filter(item => item.id == elementId);
-		itemInStorage.length > 1 ?
-			error() :
-			itemInStorage[0].price !== +elementPrice ?
-				window.location.reload() : "";
+		storage[elementId].price !== +elementPrice ?
+		window.location.reload() : "";
 	}
 	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice.toFixed(2)
 }
@@ -142,26 +139,29 @@ const deleteCard = (e) => {
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
 	console.log(totalPrice)
-	// wrapperPriceTotal.classList.add('none');
-	// wrapperContinueBtn.classList.add('none');
-	// wrapperBasket.classList.remove('none');
-	// wrapperBasket.classList.add('opacity');
-	
+
 	//удаление блока доставки про пустой корзине
 	localStorage.getItem("count-total") == 0 ? emptyBasket("delete") : ""
 }	
 
 const createCard = (coffe) => {
-	let ground = coffe.ground ? "inline" : "none";
-	let beans = coffe.beans ? "inline" : "none";
-	let obj = {
-		id: `coffe-id-${coffe.id}`,
+	const innerCheckbox = (type) => {
+		return (
+			`<span class="wrapper-shop__sort-list">
+					<input class="wrapper-shop__sort-ground sort" id=${type + "_" + coffe.id} type="checkbox">
+					<label for=${type + "_" + coffe.id}>${type === "ground" ? "Ground" : "Beans"}</label> 
+			</span>`
+		)
+	}
+
+	let storageItemId = `coffe-id-${coffe.id}`
+	let storageItem = {
 		name: coffe.name,
 		count: localStorage.getItem(`coffe-id-${coffe.id}`),
 		price: coffe.price,
 	}
-	storage.push(obj)
-
+	storage[storageItemId] = storageItem;
+	console.log(storage)
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
 	card.id = `coffe-id-${coffe.id}`
@@ -182,14 +182,8 @@ const createCard = (coffe) => {
 				<button class="wrapper-shop__product-plus" id="plus">+</button>
 			</div>
 			<div class="wrapper-shop__sort">
-				<span style= "display: ${ground}" class="wrapper-shop__sort-list">
-					<input class="wrapper-shop__sort-ground sort" id="ground" type="checkbox">
-					<label for="ground">Ground</label> 
-				</span>
-				<span style= "display: ${beans}" class="wrapper-shop__sort-li">
-					<input class="wrapper-shop__sort-beans sort" id="beans" type="checkbox">
-					<label for="beans">Beans</label>
-				</span>
+				${coffe.ground ? innerCheckbox("ground") : ""}
+				${coffe.beans ? innerCheckbox("beans") : ""}
 			</div>
 		</div>
 		<div class="wrapper-shop__total" data-price=${coffe.price}>
