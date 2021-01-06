@@ -35,7 +35,7 @@
 			"id": 2,
 			"info_title": "Curated coffee set by Azucar Mata team.",
 			"ground": true,
-			"beans": false,
+			"beans": true,
 			"description": [
 				"Including 4*55g coffee beans from Barcelona's roasters",
 				"Light roast only",

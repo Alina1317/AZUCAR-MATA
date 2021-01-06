@@ -97,6 +97,7 @@ function changeQuant (e) {
 	const setValue = (storageItem, value) => {
 		localStorage.setItem(`${storageItem}`, value)
 		e.target.parentElement.children[1].innerHTML = value
+		storage[storageItem].count = value;
 	};
 
 	if (e.target.id === "plus") {
@@ -108,6 +109,16 @@ function changeQuant (e) {
 	}
 
 	if (e.target.id === "minus" && itemValue !== 0) {
+
+		if (itemValue === 2) {
+			const checkboxBeans = document.querySelector(`#beans_${storageItem.slice(-1)}`);
+			const checkboxGround = document.querySelector(`#ground_${storageItem.slice(-1)}`);
+			storage[storageItem].groud = 1;
+			storage[storageItem].beans = 0;
+			checkboxBeans.checked = false;
+			checkboxGround.checked = true;
+		}
+
 		itemValue-= 1
 		setValue(storageItem, itemValue)
 		totalPrice -= price
@@ -138,7 +149,6 @@ const deleteCard = (e) => {
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
-	console.log(totalPrice)
 
 	//удаление блока доставки про пустой корзине
 	localStorage.getItem("count-total") == 0 ? emptyBasket("delete") : ""
@@ -147,12 +157,11 @@ const deleteCard = (e) => {
 const createCard = (coffe) => {
 	// если только ground или только beans - true
 	const isChecked = !(coffe.ground && coffe.beans) && (coffe.ground || coffe.beans);
-	console.log(isChecked)
+
 	const innerCheckbox = (type) => {
-		
 		return (
 			`<span class="wrapper-shop__sort-list">
-					<input class="wrapper-shop__sort-ground sort" id=${type + "_" + coffe.id} ${isChecked ? "disabled checked='checked'":""} type="checkbox">
+					<input name="order" required class="wrapper-shop__sort-ground sort" id=${type + "_" + coffe.id}  ${isChecked ? "disabled": ""} ${isChecked || type === "ground" ? "checked='checked'":""} type="checkbox">
 					<label for=${type + "_" + coffe.id}>${type === "ground" ? "Ground" : "Beans"}</label> 
 			</span>`
 		)
@@ -164,6 +173,19 @@ const createCard = (coffe) => {
 		count: localStorage.getItem(`coffe-id-${coffe.id}`),
 		price: coffe.price,
 	}
+		
+	if (isChecked) {
+		if (coffe.ground) {
+			storageItem.groud = 1
+		} else if (coffe.beans) {
+			storageItem.beans = 1
+		}
+	}
+
+	if (coffe.ground && coffe.beans) {
+		storageItem.groud = 1
+	}
+
 	storage[storageItemId] = storageItem;
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
@@ -184,9 +206,10 @@ const createCard = (coffe) => {
 				</span>
 				<button class="wrapper-shop__product-plus" id="plus">+</button>
 			</div>
-			<div class="wrapper-shop__sort">
+			<div data-id=coffe-id-${coffe.id} class="wrapper-shop__sort ${coffe.ground || coffe.beans ? "checkbox-listener": ""}">
 				${coffe.ground ? innerCheckbox("ground") : ""}
 				${coffe.beans ? innerCheckbox("beans") : ""}
+				
 			</div>
 		</div>
 		<div class="wrapper-shop__total" data-price=${coffe.price}>
@@ -201,9 +224,37 @@ const createCard = (coffe) => {
 	setTotalPrice(totalPrice)
 	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
 	document.querySelector(".wrapper-shop__product-count").addEventListener("click", changeQuant)
+	coffe.ground && coffe.beans ? document.querySelector(".checkbox-listener").addEventListener("change", choiceTypeCoffe) : ""
 	
 }
+choiceTypeCoffe = (e) => {
+	const parentOfCheckboxs  = e.target.parentElement.parentElement;
+	const storageItemId = storage[parentOfCheckboxs.getAttribute("data-id")];
+	const CurrentCheckbox = e.target;
+	const checkboxBeans = document.querySelector(`#beans_${parentOfCheckboxs.getAttribute("data-id").slice(-1)}`);
+	const checkboxGround = document.querySelector(`#ground_${parentOfCheckboxs.getAttribute("data-id").slice(-1)}`);
 
+	if (+storageItemId.count < 2) {
+		checkboxBeans.checked = false;
+		checkboxGround.checked = false;
+		CurrentCheckbox.checked = true;
+		storageItemId.beans = 0;
+		storageItemId.ground = 0;
+		storageItemId[CurrentCheckbox.id.slice(0,-2)] = 1;
+		
+	} else {
+		if (CurrentCheckbox.checked) {
+			storageItemId[CurrentCheckbox.id.slice(0,-2)] = +CurrentCheckbox.checked
+		} else {
+			checkboxBeans.checked = true;
+			checkboxGround.checked = true;
+			CurrentCheckbox.checked = false;
+			storageItemId[checkboxBeans.id.slice(0,-2)] = 1;
+			storageItemId[checkboxGround.id.slice(0,-2)] = 1;
+			storageItemId[CurrentCheckbox.id.slice(0,-2)] = 0;
+		}
+	}
+}
 //нажатие на кнопку и появление блока доставка
 continueBtn.onclick = e => {
 	deliveryBlock.className = 'wrapper-delivery';
@@ -236,6 +287,7 @@ Object.keys(localStorage).forEach(item => {
 	}
 })
 //call
+
 
 fetch('../db.json')
 	.then(data => data.json())
