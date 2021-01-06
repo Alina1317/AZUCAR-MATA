@@ -113,7 +113,7 @@ function changeQuant (e) {
 		if (itemValue === 2) {
 			const checkboxBeans = document.querySelector(`#beans_${storageItem.slice(-1)}`);
 			const checkboxGround = document.querySelector(`#ground_${storageItem.slice(-1)}`);
-			storage[storageItem].groud = 1;
+			storage[storageItem].ground = 1;
 			storage[storageItem].beans = 0;
 			checkboxBeans.checked = false;
 			checkboxGround.checked = true;
@@ -176,14 +176,14 @@ const createCard = (coffe) => {
 		
 	if (isChecked) {
 		if (coffe.ground) {
-			storageItem.groud = 1
+			storageItem.ground = 1
 		} else if (coffe.beans) {
 			storageItem.beans = 1
 		}
 	}
 
 	if (coffe.ground && coffe.beans) {
-		storageItem.groud = 1
+		storageItem.ground = 1
 	}
 
 	storage[storageItemId] = storageItem;
