@@ -110,9 +110,10 @@ function changeQuant (e) {
 
 	if (e.target.id === "minus" && itemValue !== 0) {
 
-		if (itemValue === 2) {
-			const checkboxBeans = document.querySelector(`#beans_${storageItem.slice(-1)}`);
-			const checkboxGround = document.querySelector(`#ground_${storageItem.slice(-1)}`);
+		if (itemValue === 2 && storage[storageItem].ground && storage[storageItem].beans)  {
+			
+			const checkboxBeans = document.querySelector(`#beans_${storageItem.replace("coffe-id-","")}`);
+			const checkboxGround = document.querySelector(`#ground_${storageItem.replace("coffe-id-","")}`);
 			storage[storageItem].ground = 1;
 			storage[storageItem].beans = 0;
 			checkboxBeans.checked = false;
@@ -149,6 +150,7 @@ const deleteCard = (e) => {
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
+	delete storage[value]
 
 	//удаление блока доставки про пустой корзине
 	localStorage.getItem("count-total") == 0 ? emptyBasket("delete") : ""
@@ -231,8 +233,9 @@ choiceTypeCoffe = (e) => {
 	const parentOfCheckboxs  = e.target.parentElement.parentElement;
 	const storageItemId = storage[parentOfCheckboxs.getAttribute("data-id")];
 	const CurrentCheckbox = e.target;
-	const checkboxBeans = document.querySelector(`#beans_${parentOfCheckboxs.getAttribute("data-id").slice(-1)}`);
-	const checkboxGround = document.querySelector(`#ground_${parentOfCheckboxs.getAttribute("data-id").slice(-1)}`);
+	const checkboxBeans = document.querySelector(`#beans_${parentOfCheckboxs.getAttribute("data-id").replace("coffe-id-","")}`);
+	const checkboxGround = document.querySelector(`#ground_${parentOfCheckboxs.getAttribute("data-id").replace("coffe-id-","")}`);
+
 
 	if (+storageItemId.count < 2) {
 		checkboxBeans.checked = false;
@@ -240,18 +243,18 @@ choiceTypeCoffe = (e) => {
 		CurrentCheckbox.checked = true;
 		storageItemId.beans = 0;
 		storageItemId.ground = 0;
-		storageItemId[CurrentCheckbox.id.slice(0,-2)] = 1;
+		storageItemId[CurrentCheckbox.id.split("_")[0]] = 1;
 		
 	} else {
 		if (CurrentCheckbox.checked) {
-			storageItemId[CurrentCheckbox.id.slice(0,-2)] = +CurrentCheckbox.checked
+			storageItemId[CurrentCheckbox.id.split("_")[0]] = +CurrentCheckbox.checked
 		} else {
 			checkboxBeans.checked = true;
 			checkboxGround.checked = true;
 			CurrentCheckbox.checked = false;
-			storageItemId[checkboxBeans.id.slice(0,-2)] = 1;
-			storageItemId[checkboxGround.id.slice(0,-2)] = 1;
-			storageItemId[CurrentCheckbox.id.slice(0,-2)] = 0;
+			storageItemId.beans = 1;
+			storageItemId.ground = 1;
+			storageItemId[CurrentCheckbox.id.split("_")[0]] = 0;
 		}
 	}
 }
@@ -282,8 +285,9 @@ proceedBtn.forEach(item => {
  // получаем айдишники кофе из локалстор
 const coffeeItems = [];
 Object.keys(localStorage).forEach(item => {
+
 	if (item.includes("coffe-id-")) {
-		coffeeItems.push(+item.slice(9));
+		coffeeItems.push(+item.replace("coffe-id-",""));
 	}
 })
 //call
