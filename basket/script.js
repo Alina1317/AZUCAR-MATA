@@ -299,3 +299,66 @@ fetch('../db.json')
 		coffeeItems.forEach(item => createCard(res.product[item]));
 		innerDeliveryPrice(res.delivery_price);
 	})
+
+// PayPal
+
+function initPayPalButton() {
+	paypal.Buttons({
+		style: {
+			shape: 'rect',
+			color: 'silver',
+			layout: 'vertical',
+			label: 'paypal',
+		},
+
+		createOrder: function (data, actions) {
+			console.log(storage);
+			return actions.order.create({
+				purchase_units: [
+					{
+						amount: {
+							currency_code: "EUR", value: totalPrice + 300,
+							breakdown: {
+								item_total: {currency_code: "EUR", value: totalPrice + 300,}
+							}
+						},
+						items: [
+							// Образец для создания аетйма
+							{
+								name: "Coffee 2",
+								// description: "Необязательное поле, можно сюда добавлять например тип упаковки",
+								unit_amount: {
+									currency_code: "EUR",
+									value: "100.00"
+								},
+								quantity: "3"
+							},
+							// Код для одной из позиций (нужно додумать как подставлять ключи из storage динамически)
+							{
+								name: storage["coffe-id-1"].name,
+								unit_amount: {
+									currency_code: "EUR",
+									value: storage["coffe-id-1"].price
+								},
+								quantity: storage["coffe-id-1"].count
+							},
+						],
+					}
+				]
+			});
+		},
+
+		onApprove: function (data, actions) {
+			return actions.order.capture().then(function (details) {
+				alert('Transaction completed by ' + details.payer.name.given_name + '!');
+			});
+		},
+
+		onError: function (err) {
+			console.log(err);
+		},
+
+	}).render('#paypal-button-container');
+}
+
+initPayPalButton();
