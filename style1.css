@@ -1011,9 +1011,15 @@ ul {
   margin-bottom: 3%;
 }
 
+.product-info__svg {
+  position: absolute;
+}
+
 .product-info__list-list {
   font: normal normal 20px/110% 'Darker Grotesque', sans-serif;
   margin-bottom: 1.5%;
+  position: relative;
+  left: 30px;
 }
 
 .product-info__list-ps {

@@ -75,10 +75,11 @@ const createCard = (coffe) => {
     // описание товара
     coffe.description.forEach((text, index) => {
         const parent = document.querySelector('.product-info__list');
-        const descriptionItem = document.createElement("li");
+        const descriptionItem = document.createElement("p");
         descriptionItem.className = 'product-info__list-list';
         descriptionItem.textContent = `${text}${coffe.description.length === index + 1 ? '.' : ';'}`;
-        parent.append(descriptionItem)
+        parent.append(descriptionItem);
+        descriptionItem.insertAdjacentHTML('beforebegin', '<span class="product-info__svg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="21"><image width="23" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAQAAAAsXwcHAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ cwAALEoAACxKAXd6dE0AAAAHdElNRQflARkUKizcsLpTAAABxUlEQVQ4y9XUv0vVURjH8dfVQpTU cLiDvzZDLkS6OOtiQw79Bbk1Nvg3uDU0NQgRZIt7gi65BAYpQmCYgYhFIunFDBW7oqfl8uV7vrfv vbrVMz2f5zyfN+ec53D476OQu9Kkxz19muz46LvL64F7TNtU8dM7pzZN67mOfdiyS0Hw0lNBcGnZ 8FXtQ9YEQbBvwvtqHqwZuoq9y2JieWVEOVHBoq7GgCkX1fYzE+77nQJcmGpk77WetG8oepyyB8G6 3uyw4hg3mOSf/ahZHzReD9BsXHOitvFNpU5HDaAY3fM2dh3XzKiYD+iOFruxZSMDKOrOB3RoTakB N/zyJgNo1ZEP6NeSUiMGMOdT1NOiPx9wLqRUn0cKdsxGPcG53Bh1Gk19RwmDvqZqp0bzd3DoJHOk h9iylqqdOMwH7NrL7OmBTucRYM9uPuDASgZQcgf7qcqKg3xAsJB5eZ3uRrpiIbromre+ZDXSBSXc TPSqpdiQBZTNOIsqbShV8zMzyhpEm9lolM/d9qGaz2prZIde8ynAM2OOBcF89i+oh5hLfqInXggq 5q5uh3aT3io78tqWJZPa/95YqAO5ZUCngiNfan6Ffyj+AK1usRc1jZuvAAAAJXRFWHRkYXRlOmNy ZWF0ZQAyMDIxLTAxLTI1VDIwOjQyOjQ0KzAzOjAwVcEtrgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAy MS0wMS0yNVQyMDo0Mjo0NCswMzowMCSclRIAAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYu Ny44LTkgMjAxNi0wNi0xNiBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmfmvzS2AAAAGHRF WHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGXRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdo dAAxMjAwV2UlnwAAABh0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxMjAwxLB2UQAAABl0RVh0VGh1 bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTExMjAzMDgx sfz89wAAABN0RVh0VGh1bWI6OlNpemUAMzUuMktCQv82gqgAAABMdEVYdFRodW1iOjpVUkkAZmls ZTovLy4vdXBsb2Fkcy9jYXJsb3NwcmV2aS8yNHpYa0tELzEzMjUvY29mZmVlbWFrZXI0eF84Njk4 Ny5wbmcLbJ1KAAAAAElFTkSuQmCC"/></svg></span>')
     });
     
     // события 
