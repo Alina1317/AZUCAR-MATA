@@ -23,7 +23,6 @@ const createCard = (coffe) => {
                 <div class="product-info__wrap">
                     <p class="product-info__list-set">${coffe.info_title}</p>
                     <ul class="product-info__list"></ul>
-                    <p class="product-info__list-ps"> P.S. Please let us know if you need to grind coffee for you.</p>
                 </div>
             </div>
         </div>

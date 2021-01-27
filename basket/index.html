@@ -15,11 +15,11 @@
 			<div class="header-container">
 				<div class="header-wrap">
 					<div class="header-logo">
-						<a class="" href="../index.html"><h1 class="header-logo__title-basket">AZÚCAR MATA</h1></a>
+						<a class="" href="../"><h1 class="header-logo__title-basket">AZÚCAR MATA</h1></a>
 					</div>
 					<div class="nav-menu">
 						<nav class="header-menu basket">
-							<a class="header-menu__link" href="../index.html">HOME</a>
+							<a class="header-menu__link" href="../">HOME</a>
 							<a class="header-menu__link" href="#contactos">CONTACTS</a>
 							<a class="header-menu__link header-menu__link_basket active link" href="#">
 								<svg class="svg" height="32px" width="32px" viewBox="0 0 512 512" height="32" widht="32" xmlns="http://www.w3.org/2000/svg"><g data-name="1"><path d="M397.78 316H192.65A15 15 0 01178 304.33l-34.54-150.48a15 15 0 0114.62-18.36h274.27A15 15 0 01447 153.85l-34.6 150.48A15 15 0 01397.78 316zm-193.19-30h181.25l27.67-120.48h-236.6zM222 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01222 450zm0-84.95a27.48 27.48 0 1027.48 27.47A27.5 27.5 0 00222 365.05zM368.42 450a57.48 57.48 0 1157.48-57.48A57.54 57.54 0 01368.42 450zm0-84.95a27.48 27.48 0 1027.48 27.47 27.5 27.5 0 00-27.48-27.47z"/><path d="M158.08 165.49a15 15 0 01-14.23-10.26L118.14 78H70.7a15 15 0 110-30H129a15 15 0 0114.23 10.26l29.13 87.49a15 15 0 01-14.23 19.74z"/></g></svg>
@@ -34,11 +34,15 @@
 		</header>
 		<main>
 			<section class="wrapper">
+				<div class="wrapper-basket none">
+					<h1 class="wrapper-basket__title">Your shopping basket is empty</h1>
+					<a class="wrapper-basket__link" href="../index.html"><button class="wrapper-basket__btn">Go to purchases</button></a>
+				</div>
 				<div class="wrapper-container">
-					<div class="wrapper-basket none">
+					<!-- <div class="wrapper-basket none">
 						<h1 class="wrapper-basket__title">Your shopping basket is empty</h1>
 						<a class="wrapper-basket__link" href="../index.html"><button class="wrapper-basket__btn">Go to purchases</button></a>
-					</div>
+					</div> -->
 
 					<!-- <div class="wrapper-shop">
 						<div class="wrapper-shop__coffee">
@@ -72,7 +76,7 @@
 
 					<div class="wrapper-price__total">
 						<h3 class="wrapper-price__total-title">TOTAL</h3>
-						<p class="wrapper-price__total-price">0&euro;</p>
+						<p class="wrapper-price__total-price">0</p>
 					</div>
 					<div class="wrapper-continue">
 						<button class="wrapper-continue__btn" id="continue">Сontinue processing</button>
@@ -86,7 +90,7 @@
 								</div>
 								<h3 class="wrapper-delivery__view-pickup">Pickup</h3>
 								<p class=""></p>
-								<p class="wrapper-delivery__view-price">free</p>	
+								<p class="wrapper-delivery__view-price" id="delivery-price_free">free</p>	
 							</button>
 							<div class="none delivery-pickup modal" id="pickup-address">
 								<p class="delivery-pickup__titel">Address</p>
@@ -110,7 +114,7 @@
 								</div>
 								<h3 class="wrapper-delivery__view-spain">Delivery in Spain</h3>
 								<p class=""></p>
-								<p class="wrapper-delivery__view-price">5&euro;</p>
+								<p class="wrapper-delivery__view-price" id="delivery-price_spain"></p>
 							</button>
 							<div class="modal none" id="modal">
 								<!-- <form class="">Address</form> -->
@@ -122,7 +126,7 @@
 						                    <input required placeholder="Name" name="name" type="text" class="modal__input">
 						                    <input required placeholder="E-mail" name="e-mail" type="text" class="modal__input">
 											<input required placeholder="Address" name="adress" type="text" class="modal__input">
-											<input required placeholder="Comments" name="adress" type="text" class="modal__input comments">
+											<input required placeholder="Comments" name="comments" type="text" class="modal__input comments">
 						                    <button class="modal-btn proceed">Proceed to payment</button>
 						                </form>
 						            </div>
@@ -134,7 +138,7 @@
 								</div>
 								<h3 class="wrapper-delivery__view-europe">Delivery in Europe</h3>
 								<p class=""></p>
-								<p class="wrapper-delivery__view-price">15&euro;</p>
+								<p class="wrapper-delivery__view-price" id="delivery-price_europe"></p>
 							</button>
 							<div class="modal none" id="modal-form">
 								<!-- <form class="">Address</form> -->
@@ -146,7 +150,7 @@
 						                    <input required placeholder="Name" name="name" type="text" class="modal__input">
 						                    <input required placeholder="E-mail" name="e-mail" type="text" class="modal__input">
 											<input required placeholder="Address" name="adress" type="text" class="modal__input">
-											<input required placeholder="Comments" name="adress" type="text" class="modal__input comments">
+											<input required placeholder="Comments" name="comments" type="text" class="modal__input comments">
 						                    <button class="modal-btn proceed">Proceed to payment</button>
 						                </form>
 						            </div>
@@ -162,6 +166,17 @@
 							</div>	
 						</div>
 					</div>
+
+					<div class="thanks none">
+						<div class="thanks__beans">
+							<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="31"><image width="32" height="31" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAQAAAAsXwcHAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ cwAALEoAACxKAXd6dE0AAAAHdElNRQflARkUKizcsLpTAAABxUlEQVQ4y9XUv0vVURjH8dfVQpTU cLiDvzZDLkS6OOtiQw79Bbk1Nvg3uDU0NQgRZIt7gi65BAYpQmCYgYhFIunFDBW7oqfl8uV7vrfv vbrVMz2f5zyfN+ec53D476OQu9Kkxz19muz46LvL64F7TNtU8dM7pzZN67mOfdiyS0Hw0lNBcGnZ 8FXtQ9YEQbBvwvtqHqwZuoq9y2JieWVEOVHBoq7GgCkX1fYzE+77nQJcmGpk77WetG8oepyyB8G6 3uyw4hg3mOSf/ahZHzReD9BsXHOitvFNpU5HDaAY3fM2dh3XzKiYD+iOFruxZSMDKOrOB3RoTakB N/zyJgNo1ZEP6NeSUiMGMOdT1NOiPx9wLqRUn0cKdsxGPcG53Bh1Gk19RwmDvqZqp0bzd3DoJHOk h9iylqqdOMwH7NrL7OmBTucRYM9uPuDASgZQcgf7qcqKg3xAsJB5eZ3uRrpiIbromre+ZDXSBSXc TPSqpdiQBZTNOIsqbShV8zMzyhpEm9lolM/d9qGaz2prZIde8ynAM2OOBcF89i+oh5hLfqInXggq 5q5uh3aT3io78tqWJZPa/95YqAO5ZUCngiNfan6Ffyj+AK1usRc1jZuvAAAAJXRFWHRkYXRlOmNy ZWF0ZQAyMDIxLTAxLTI1VDIwOjQyOjQ0KzAzOjAwVcEtrgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAy MS0wMS0yNVQyMDo0Mjo0NCswMzowMCSclRIAAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYu Ny44LTkgMjAxNi0wNi0xNiBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmfmvzS2AAAAGHRF WHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGXRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdo dAAxMjAwV2UlnwAAABh0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxMjAwxLB2UQAAABl0RVh0VGh1 bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTExMjAzMDgx sfz89wAAABN0RVh0VGh1bWI6OlNpemUAMzUuMktCQv82gqgAAABMdEVYdFRodW1iOjpVUkkAZmls ZTovLy4vdXBsb2Fkcy9jYXJsb3NwcmV2aS8yNHpYa0tELzEzMjUvY29mZmVlbWFrZXI0eF84Njk4 Ny5wbmcLbJ1KAAAAAElFTkSuQmCC"/></svg></p>
+							<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="31"><image width="32" height="31" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAQAAAAsXwcHAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ cwAALEoAACxKAXd6dE0AAAAHdElNRQflARkUKizcsLpTAAABxUlEQVQ4y9XUv0vVURjH8dfVQpTU cLiDvzZDLkS6OOtiQw79Bbk1Nvg3uDU0NQgRZIt7gi65BAYpQmCYgYhFIunFDBW7oqfl8uV7vrfv vbrVMz2f5zyfN+ec53D476OQu9Kkxz19muz46LvL64F7TNtU8dM7pzZN67mOfdiyS0Hw0lNBcGnZ 8FXtQ9YEQbBvwvtqHqwZuoq9y2JieWVEOVHBoq7GgCkX1fYzE+77nQJcmGpk77WetG8oepyyB8G6 3uyw4hg3mOSf/ahZHzReD9BsXHOitvFNpU5HDaAY3fM2dh3XzKiYD+iOFruxZSMDKOrOB3RoTakB N/zyJgNo1ZEP6NeSUiMGMOdT1NOiPx9wLqRUn0cKdsxGPcG53Bh1Gk19RwmDvqZqp0bzd3DoJHOk h9iylqqdOMwH7NrL7OmBTucRYM9uPuDASgZQcgf7qcqKg3xAsJB5eZ3uRrpiIbromre+ZDXSBSXc TPSqpdiQBZTNOIsqbShV8zMzyhpEm9lolM/d9qGaz2prZIde8ynAM2OOBcF89i+oh5hLfqInXggq 5q5uh3aT3io78tqWJZPa/95YqAO5ZUCngiNfan6Ffyj+AK1usRc1jZuvAAAAJXRFWHRkYXRlOmNy ZWF0ZQAyMDIxLTAxLTI1VDIwOjQyOjQ0KzAzOjAwVcEtrgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAy MS0wMS0yNVQyMDo0Mjo0NCswMzowMCSclRIAAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYu Ny44LTkgMjAxNi0wNi0xNiBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmfmvzS2AAAAGHRF WHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGXRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdo dAAxMjAwV2UlnwAAABh0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxMjAwxLB2UQAAABl0RVh0VGh1 bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTExMjAzMDgx sfz89wAAABN0RVh0VGh1bWI6OlNpemUAMzUuMktCQv82gqgAAABMdEVYdFRodW1iOjpVUkkAZmls ZTovLy4vdXBsb2Fkcy9jYXJsb3NwcmV2aS8yNHpYa0tELzEzMjUvY29mZmVlbWFrZXI0eF84Njk4 Ny5wbmcLbJ1KAAAAAElFTkSuQmCC"/></svg></p>
+							<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="31"><image width="32" height="31" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAQAAAAsXwcHAAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ cwAALEoAACxKAXd6dE0AAAAHdElNRQflARkUKizcsLpTAAABxUlEQVQ4y9XUv0vVURjH8dfVQpTU cLiDvzZDLkS6OOtiQw79Bbk1Nvg3uDU0NQgRZIt7gi65BAYpQmCYgYhFIunFDBW7oqfl8uV7vrfv vbrVMz2f5zyfN+ec53D476OQu9Kkxz19muz46LvL64F7TNtU8dM7pzZN67mOfdiyS0Hw0lNBcGnZ 8FXtQ9YEQbBvwvtqHqwZuoq9y2JieWVEOVHBoq7GgCkX1fYzE+77nQJcmGpk77WetG8oepyyB8G6 3uyw4hg3mOSf/ahZHzReD9BsXHOitvFNpU5HDaAY3fM2dh3XzKiYD+iOFruxZSMDKOrOB3RoTakB N/zyJgNo1ZEP6NeSUiMGMOdT1NOiPx9wLqRUn0cKdsxGPcG53Bh1Gk19RwmDvqZqp0bzd3DoJHOk h9iylqqdOMwH7NrL7OmBTucRYM9uPuDASgZQcgf7qcqKg3xAsJB5eZ3uRrpiIbromre+ZDXSBSXc TPSqpdiQBZTNOIsqbShV8zMzyhpEm9lolM/d9qGaz2prZIde8ynAM2OOBcF89i+oh5hLfqInXggq 5q5uh3aT3io78tqWJZPa/95YqAO5ZUCngiNfan6Ffyj+AK1usRc1jZuvAAAAJXRFWHRkYXRlOmNy ZWF0ZQAyMDIxLTAxLTI1VDIwOjQyOjQ0KzAzOjAwVcEtrgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAy MS0wMS0yNVQyMDo0Mjo0NCswMzowMCSclRIAAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYu Ny44LTkgMjAxNi0wNi0xNiBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmfmvzS2AAAAGHRF WHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGXRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdo dAAxMjAwV2UlnwAAABh0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxMjAwxLB2UQAAABl0RVh0VGh1 bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTExMjAzMDgx sfz89wAAABN0RVh0VGh1bWI6OlNpemUAMzUuMktCQv82gqgAAABMdEVYdFRodW1iOjpVUkkAZmls ZTovLy4vdXBsb2Fkcy9jYXJsb3NwcmV2aS8yNHpYa0tELzEzMjUvY29mZmVlbWFrZXI0eF84Njk4 Ny5wbmcLbJ1KAAAAAElFTkSuQmCC"/></svg></p>
+						</div>
+						<p class="thanks__title order">Your order has been completed.</p>
+						<p class="thanks__title">Thank you for your purchase!</p>
+					</div>
+
 				</div>
 			</section>
 		</main>

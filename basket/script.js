@@ -1,17 +1,20 @@
-const burg = document.querySelector('.header-burger'),
-	burgMenu = document.querySelector('.header-menu'),
-	header = document.querySelector('.header');
-const minus = document.getElementById('minus'),
-	plus = document.getElementById('plus');
-let	num = document.getElementById('num'),
-	subtotal = document.getElementById('subtotal'),
-	total = document.getElementById('total'),
-	count = 1;
-let storage = [];
-	let totalPrice = null;
+const burg = document.querySelector('.header-burger');
+const burgMenu = document.querySelector('.header-menu');
+const header = document.querySelector('.header');
+const minus = document.getElementById('minus');
+const plus = document.getElementById('plus');
+let	num = document.getElementById('num');
+const subtotal = document.getElementById('subtotal');
+const total = document.getElementById('total');
+let count = 1;
+let storage = {};
+let totalPrice = null;
+// let deliveryPrice = {};
 // счетчик в корзинку
 let countTotal = 0 || +localStorage.getItem(`count-total`);
-countTotal > 0 ? document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal) : "";
+countTotal > 0 ?
+	document.querySelector(".header-menu__link_basket").setAttribute("data-count", countTotal) :
+	emptyBasket();
 
 const wrapperBasket = document.querySelector('.wrapper-basket'),
 	wrapperPriceTotal = document.querySelector('.wrapper-price__total'),
@@ -34,6 +37,50 @@ burg.onclick = () => {
 	header.classList.toggle('toggle');
 };
 
+function emptyBasket (type) {
+	document.querySelector(".wrapper-container").classList.toggle("none")
+	document.querySelector(".wrapper-basket").classList.toggle("none")
+	type === "detete" ? deliveryBlock.remove() : ""
+}
+
+function innerDeliveryPrice (json_price) {
+	const spain = document.querySelector("#delivery-price_spain");
+	const europe = document.querySelector("#delivery-price_europe");
+	const free =  document.querySelector("#delivery-price_free");
+	spain.textContent = json_price.spain + "€"
+	europe.textContent = json_price.europe + "€"
+
+	function clickOnDelivery (price) {
+		finalTotalPrice = totalPrice + price
+		setTotalPrice(finalTotalPrice)
+		document.querySelectorAll(".wrapper-shop__total-delete").forEach(el => el.removeEventListener("click", deleteCard))
+		document.querySelectorAll(".wrapper-shop__product-count").forEach(el => el.removeEventListener("click", changeQuant))
+		const CloseModal = () => {
+			document.querySelectorAll(".wrapper-shop__total-delete").forEach(el => el.addEventListener("click", deleteCard))
+			document.querySelectorAll(".wrapper-shop__product-count").forEach(el => el.addEventListener("click", changeQuant))
+			deliveryBlock.classList.remove('wrapper-delivery');
+			deliveryBlock.classList.add("none")
+			setTotalPrice(totalPrice)
+			modalBlock.forEach(el => {el.classList.remove("opacity"); el.classList.add("none")})
+			// window.location.reload()
+		}
+		document.querySelectorAll(".modal__close").forEach(el => el.addEventListener("click", CloseModal))
+	}
+
+	spain.parentElement.onclick = (e) => {
+		clickOnDelivery(json_price.spain)
+		setTotalPrice(finalTotalPrice)
+	}
+	europe.parentElement.onclick = (e) => {
+		clickOnDelivery(json_price.europe)
+		setTotalPrice(finalTotalPrice)
+	}
+	free.parentElement.onclick = (e) =>{
+		clickOnDelivery(0)
+		setTotalPrice(totalPrice)
+	}
+}
+
 function error () {
 	alert("error")
 	localStorage.clear()
@@ -50,6 +97,7 @@ function changeQuant (e) {
 	const setValue = (storageItem, value) => {
 		localStorage.setItem(`${storageItem}`, value)
 		e.target.parentElement.children[1].innerHTML = value
+		storage[storageItem].count = value;
 	};
 
 	if (e.target.id === "plus") {
@@ -61,6 +109,17 @@ function changeQuant (e) {
 	}
 
 	if (e.target.id === "minus" && itemValue !== 0) {
+
+		if (itemValue === 2 && storage[storageItem].ground && storage[storageItem].beans)  {
+			
+			const checkboxBeans = document.querySelector(`#beans_${storageItem.replace("coffe-id-","")}`);
+			const checkboxGround = document.querySelector(`#ground_${storageItem.replace("coffe-id-","")}`);
+			storage[storageItem].ground = 1;
+			storage[storageItem].beans = 0;
+			checkboxBeans.checked = false;
+			checkboxGround.checked = true;
+		}
+
 		itemValue-= 1
 		setValue(storageItem, itemValue)
 		totalPrice -= price
@@ -70,24 +129,15 @@ function changeQuant (e) {
 }
 
 function changeCountTotal (value) {
-	localStorage.setItem('count-total', value)
-	document.querySelector('.header-menu__link_basket').setAttribute('data-count', value);
-	if (value == 0) {
-		wrapperPriceTotal.classList.add('none');
-		wrapperContinueBtn.classList.add('none');
-		wrapperBasket.classList.remove('none');
-		wrapperBasket.classList.add('opacity');
-	}
+	localStorage.setItem("count-total", value)
+	document.querySelector(".header-menu__link_basket").setAttribute("data-count", value)
 }
 
 function setTotalPrice (totalPrice, elementId, elementPrice) {
 	// проверка изменения цены через devtools
 	if (elementId && elementPrice) {
-		let itemInStorage = storage.filter(item => item.id == elementId);
-		itemInStorage.length > 1 ?
-			error() :
-			itemInStorage[0].price !== +elementPrice ?
-				window.location.reload() : "";
+		storage[elementId].price !== +elementPrice ?
+		window.location.reload() : "";
 	}
 	document.querySelector(".wrapper-price__total-price").innerHTML = totalPrice.toFixed(2)
 }
@@ -100,22 +150,45 @@ const deleteCard = (e) => {
 	document.getElementById(value).remove()
 	changeCountTotal(localStorage.getItem("count-total") - localStorage.getItem(value))
 	localStorage.removeItem(value);
+	delete storage[value]
 
 	//удаление блока доставки про пустой корзине
-	localStorage.getItem("count-total") == 0 ? deliveryBlock.remove() : ""
+	localStorage.getItem("count-total") == 0 ? emptyBasket("delete") : ""
 }	
 
 const createCard = (coffe) => {
-	let ground = coffe.ground ? "inline" : "none";
-	let beans = coffe.beans ? "inline" : "none";
-	let obj = {
-		id: `coffe-id-${coffe.id}`,
+	// если только ground или только beans - true
+	const isChecked = !(coffe.ground && coffe.beans) && (coffe.ground || coffe.beans);
+
+	const innerCheckbox = (type) => {
+		return (
+			`<span class="wrapper-shop__sort-list">
+					<input name="order" required class="wrapper-shop__sort-ground sort" id=${type + "_" + coffe.id}  ${isChecked ? "disabled": ""} ${isChecked || type === "ground" ? "checked='checked'":""} type="checkbox">
+					<label for=${type + "_" + coffe.id}>${type === "ground" ? "Ground" : "Beans"}</label> 
+			</span>`
+		)
+	}
+
+	let storageItemId = `coffe-id-${coffe.id}`
+	let storageItem = {
 		name: coffe.name,
 		count: localStorage.getItem(`coffe-id-${coffe.id}`),
 		price: coffe.price,
 	}
-	storage.push(obj)
+		
+	if (isChecked) {
+		if (coffe.ground) {
+			storageItem.ground = 1
+		} else if (coffe.beans) {
+			storageItem.beans = 1
+		}
+	}
 
+	if (coffe.ground && coffe.beans) {
+		storageItem.ground = 1
+	}
+
+	storage[storageItemId] = storageItem;
 	totalPrice+= +coffe.price * +localStorage.getItem(`coffe-id-${coffe.id}`);
 	const card = document.createElement("div");
 	card.id = `coffe-id-${coffe.id}`
@@ -135,15 +208,10 @@ const createCard = (coffe) => {
 				</span>
 				<button class="wrapper-shop__product-plus" id="plus">+</button>
 			</div>
-			<div class="wrapper-shop__sort">
-				<span style= "display: ${ground}" class="wrapper-shop__sort-list">
-					<input class="wrapper-shop__sort-ground sort" id="ground" type="checkbox">
-					<label for="ground">Ground</label> 
-				</span>
-				<span style= "display: ${beans}" class="wrapper-shop__sort-li">
-					<input class="wrapper-shop__sort-beans sort" id="beans" type="checkbox">
-					<label for="beans">Beans</label>
-				</span>
+			<div data-id=coffe-id-${coffe.id} class="wrapper-shop__sort ${coffe.ground || coffe.beans ? "checkbox-listener": ""}">
+				${coffe.ground ? innerCheckbox("ground") : ""}
+				${coffe.beans ? innerCheckbox("beans") : ""}
+				
 			</div>
 		</div>
 		<div class="wrapper-shop__total" data-price=${coffe.price}>
@@ -158,9 +226,38 @@ const createCard = (coffe) => {
 	setTotalPrice(totalPrice)
 	document.querySelector(".wrapper-shop__total-delete").addEventListener("click", deleteCard)
 	document.querySelector(".wrapper-shop__product-count").addEventListener("click", changeQuant)
+	coffe.ground && coffe.beans ? document.querySelector(".checkbox-listener").addEventListener("change", choiceTypeCoffe) : ""
 	
 }
+choiceTypeCoffe = (e) => {
+	const parentOfCheckboxs  = e.target.parentElement.parentElement;
+	const storageItemId = storage[parentOfCheckboxs.getAttribute("data-id")];
+	const CurrentCheckbox = e.target;
+	const checkboxBeans = document.querySelector(`#beans_${parentOfCheckboxs.getAttribute("data-id").replace("coffe-id-","")}`);
+	const checkboxGround = document.querySelector(`#ground_${parentOfCheckboxs.getAttribute("data-id").replace("coffe-id-","")}`);
 
+
+	if (+storageItemId.count < 2) {
+		checkboxBeans.checked = false;
+		checkboxGround.checked = false;
+		CurrentCheckbox.checked = true;
+		storageItemId.beans = 0;
+		storageItemId.ground = 0;
+		storageItemId[CurrentCheckbox.id.split("_")[0]] = 1;
+		
+	} else {
+		if (CurrentCheckbox.checked) {
+			storageItemId[CurrentCheckbox.id.split("_")[0]] = +CurrentCheckbox.checked
+		} else {
+			checkboxBeans.checked = true;
+			checkboxGround.checked = true;
+			CurrentCheckbox.checked = false;
+			storageItemId.beans = 1;
+			storageItemId.ground = 1;
+			storageItemId[CurrentCheckbox.id.split("_")[0]] = 0;
+		}
+	}
+}
 //нажатие на кнопку и появление блока доставка
 continueBtn.onclick = e => {
 	deliveryBlock.className = 'wrapper-delivery';
@@ -188,13 +285,17 @@ proceedBtn.forEach(item => {
  // получаем айдишники кофе из локалстор
 const coffeeItems = [];
 Object.keys(localStorage).forEach(item => {
-	
+
 	if (item.includes("coffe-id-")) {
-		coffeeItems.push(+item.slice(9));
+		coffeeItems.push(+item.replace("coffe-id-",""));
 	}
 })
 //call
 
+
 fetch('../db.json')
 	.then(data => data.json())
-	.then(res => coffeeItems.forEach(item => createCard(res.product[item])))
+	.then(res => {
+		coffeeItems.forEach(item => createCard(res.product[item]));
+		innerDeliveryPrice(res.delivery_price);
+	})
