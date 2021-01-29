@@ -915,9 +915,21 @@ form {
   /* justify-content: space-between; */
 }
 
+.start {
+  justify-content: start;
+}
+
+.space {
+  justify-content: space-between;
+}
+
 .product-img__slider-img {
   max-width: 16%;
   /* margin-right: 5%; */
+}
+
+.right {
+  margin-right: 5%;
 }
 
 .product-text {

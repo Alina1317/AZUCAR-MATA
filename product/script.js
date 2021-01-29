@@ -43,15 +43,18 @@ const createCard = (coffe) => {
         mainPic.style.backgroundImage = `url(../assets/img/${folder}/${coffe.images[numberOfPic]})`;
     }
 
-// превью слайдера
-    if (coffe.images.length > 1) {
+    // превью слайдера
+    const previewImg = () => {
+        prodSlider = document.querySelector('.product-img__slider');
         coffe.images.forEach((elemet, index) => {
             const image = document.createElement('img');
             image.className = 'product-img__slider-img';
+            prodSlidImg = document.querySelector('.product-img__slider-img');
             image.src = `../assets/img/${folder}/${elemet}`;
             image.alt = 'image';
-            image.setAttribute('data-number', index)
-            document.querySelector('.product-img__slider').append(image);
+            image.setAttribute('data-number', index);
+            
+            prodSlider.append(image);
             // вешаем обработчик на картинку
             image.addEventListener('click', sliderItemsOnClick)
 
@@ -60,7 +63,20 @@ const createCard = (coffe) => {
                 image.classList.add('active')
             }
         });
+    };
+    
+    let imgLeng = coffe.images.length;
+    if (imgLeng == 1) {
+        previewImg();
+    } else if (imgLeng == 2 || imgLeng <= 4) {
+        previewImg();
+        prodSlider.classList.add('start');
+        prodSlidImg.classList.add('right');
+    } else {
+        previewImg();
+        prodSlider.classList.add('space');
     }
+
     // клик по превью слайдера
     function sliderItemsOnClick(e) {
         numberOfPic = +e.target.getAttribute('data-number');
