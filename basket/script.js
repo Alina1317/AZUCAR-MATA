@@ -9,6 +9,7 @@ const total = document.getElementById('total');
 let count = 1;
 let storage = {};
 let totalPrice = null;
+let finalTotalPrice;
 // let deliveryPrice = {};
 // счетчик в корзинку
 let countTotal = 0 || +localStorage.getItem(`count-total`);
@@ -51,8 +52,8 @@ function innerDeliveryPrice (json_price) {
 	europe.textContent = json_price.europe + "€"
 
 	function clickOnDelivery (price) {
-		finalTotalPrice = totalPrice + price
-		setTotalPrice(finalTotalPrice)
+		finalTotalPrice = totalPrice + price;
+		setTotalPrice(finalTotalPrice);
 		document.querySelectorAll(".wrapper-shop__total-delete").forEach(el => el.removeEventListener("click", deleteCard))
 		document.querySelectorAll(".wrapper-shop__product-count").forEach(el => el.removeEventListener("click", changeQuant))
 		const CloseModal = () => {
@@ -67,17 +68,37 @@ function innerDeliveryPrice (json_price) {
 		document.querySelectorAll(".modal__close").forEach(el => el.addEventListener("click", CloseModal))
 	}
 
+	function paypalButtonCreate(elem) {
+		let tmpElem = document.createElement('div');
+		tmpElem.innerHTML = `
+		<div class="paypal">
+		<div id="smart-button-container">
+		<div style="text-align: center;">
+		<div id="paypal-button-container"></div>
+		</div>
+		</div>
+		<script src="https://www.paypal.com/sdk/js?client-id=AbKJL7fs4sOVe0yBAQwBFFoDNv9qWkZZzeT1NkMRz9jP4978cWT0TBdNXRpVnyQ-p0WcsW2o_Mu_QsfJ&currency=EUR" data-sdk-integration-source="button-factory"></script>
+		</div>`;
+
+		elem.appendChild(tmpElem);
+		initPayPalButton();
+	}
+
 	spain.parentElement.onclick = (e) => {
+		paypalButtonCreate(spain)
 		clickOnDelivery(json_price.spain)
 		setTotalPrice(finalTotalPrice)
 	}
 	europe.parentElement.onclick = (e) => {
+		paypalButtonCreate(europe)
 		clickOnDelivery(json_price.europe)
-		setTotalPrice(finalTotalPrice)
+		setTotalPrice(finalTotalPrice);
+
 	}
 	free.parentElement.onclick = (e) =>{
-		clickOnDelivery(0)
-		setTotalPrice(totalPrice)
+		paypalButtonCreate(free);
+		clickOnDelivery(0);
+		setTotalPrice(totalPrice);
 	}
 }
 
@@ -299,3 +320,102 @@ fetch('../db.json')
 		coffeeItems.forEach(item => createCard(res.product[item]));
 		innerDeliveryPrice(res.delivery_price);
 	})
+
+// PayPal
+
+function initPayPalButton() {
+
+	paypal.Buttons({
+		style: {
+			shape: 'rect',
+			color: 'silver',
+			layout: 'vertical',
+			label: 'paypal',
+		},
+
+		createOrder: function (data, actions) {
+
+			console.log(storage);
+
+			const result = [];
+			// Получаю массив ключей storage
+			for (let key in storage) {
+				if (storage.hasOwnProperty(key)) {
+					result.push(key)
+				}
+			}
+			// Делаю из storage массив с объектами
+			let newStore = [];
+			result.forEach(elem => {
+				newStore.push(storage[elem])
+			});
+
+
+
+			// console.log(Object.keys(storage["coffe-id-1"])); // массив ключей вложенного объекта
+
+
+
+
+			// const priceWithDelivery = document.querySelector('.wrapper-price__total-price').innerHTML;
+			const delivery = {
+				area: 'Delivery in Europe',
+				price: (finalTotalPrice - totalPrice).toFixed(2)
+			};
+
+			// function createItems() {
+			// 	Object.keys(storage).forEach(key => {
+			// 		let value = storage[key];
+			//
+			// 		console.log(`${key}: ${value}`);
+			// 	});
+			// }
+			//
+			// createItems();
+
+			return actions.order.create({
+				purchase_units: [
+					{
+						amount: {
+							currency_code: "EUR",
+							value: finalTotalPrice,
+							breakdown: {
+								item_total: {currency_code: "EUR", value: finalTotalPrice}
+							}
+						},
+						items: [
+							// Код для одной из позиций (нужно додумать как подставлять ключи из storage динамически)
+							{
+								name: storage["coffe-id-1"].name,
+								unit_amount: {
+									currency_code: "EUR",
+									value: storage["coffe-id-1"].price
+								},
+								quantity: storage["coffe-id-1"].count
+							},
+							{
+								name: delivery.area,
+								unit_amount: {
+									currency_code: "EUR",
+									value: delivery.price
+								},
+								quantity: 1
+							}
+						],
+					}
+				]
+			});
+		},
+
+		onApprove: function (data, actions) {
+			return actions.order.capture().then(function (details) {
+				alert('Transaction completed by ' + details.payer.name.given_name + '!');
+			});
+		},
+
+		onError: function (err) {
+			console.log(err);
+		},
+
+	}).render('#paypal-button-container');
+}
